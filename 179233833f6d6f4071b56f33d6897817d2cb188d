@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba6fbed1_3071721c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-06-08T00:18:45Z",
+      "side": 1,
+      "message": "Should be merged before pulling in the next stable upstream tag.",
+      "revId": "179233833f6d6f4071b56f33d6897817d2cb188d",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
