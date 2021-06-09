@@ -425,7 +425,7 @@ public final class Preferences implements SharedPreferences.OnSharedPreferenceCh
     }
 
     public boolean isAutoDownloadEnabled() {
-        return preferences.getBoolean(PREF_AUTO_DOWNLOAD_INSTALL_UPDATES, IGNORED_B);
+        return preferences.getBoolean(PREF_AUTO_DOWNLOAD_INSTALL_UPDATES, true);
     }
 
     /**
