@@ -323,10 +323,10 @@ public class DBHelper extends SQLiteOpenHelper {
      * Look for additional, initial repositories from the device's filesystem.
      * These can be added as part of the ROM ({@code /system} or {@code /product}
      * or included later by vendors/OEMs ({@code /vendor}, {@code /odm}, {@code /oem}).
-     * These are always added at a lower priority than the repos embedded in the APK via
+     * These are added at a higher priority than the repos embedded in the APK via
      * {@code default_repos.xml}.
      * <p>
-     * ROM (System) has the lowest priority, then Product, Vendor, ODM, and OEM.
+     * ROM (System) has the highest priority, then Product, Vendor, ODM, and OEM.
      */
     private static List<String> loadAdditionalRepos(String packageName) {
         List<String> repoItems = new LinkedList<>();
@@ -386,7 +386,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         final int priorityIndex = 5;
         for (int i = priorityIndex; i < repoItems.size(); i += REPO_XML_ITEM_COUNT) {
-            repoItems.add(i, "0");
+            repoItems.add(i, "10");
         }
 
         if (repoItems.size() % REPO_XML_ITEM_COUNT == 0) {
