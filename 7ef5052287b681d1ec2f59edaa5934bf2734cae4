@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a93caf2_291b8f7d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-06-11T18:27:18Z",
+      "side": 1,
+      "message": "https://gitlab.com/fdroid/fdroidclient/-/merge_requests/1026",
+      "revId": "7ef5052287b681d1ec2f59edaa5934bf2734cae4",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
