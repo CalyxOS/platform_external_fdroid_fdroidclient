@@ -16,6 +16,23 @@
       "message": "Thoughts?\n\nThis wouldn\u0027t make sense upstream, but I noticed this in the latest update where we shipped Organic Maps.\n\nFor existing users that app doesn\u0027t get installed, so if they go to F-Droid it\u0027d download the APK again while it was just there sitting on the device in the local repo.\n\nThis was also before Organic Maps got updated on F-Droid, it was the exact same version when we shipped yesterday. That may happen for some apps but not all.\n\n\nThis is a small change wrt upstream to avoid conflicts, otherwise perhaps we could just let the XML specify priority, but that\u0027s not needed / would be overkill.",
       "revId": "d9c12e1f842a10b8d234c5bac2d6748c886d4551",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26397bdd_2183d73f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-06-11T18:48:49Z",
+      "side": 1,
+      "message": "Needs testing.",
+      "revId": "d9c12e1f842a10b8d234c5bac2d6748c886d4551",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
