@@ -27,6 +27,8 @@
     package="org.fdroid.fdroid"
     android:installLocation="auto">
 
+    <original-package android:name="org.fdroid.fdroid"/>
+
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
