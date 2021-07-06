@@ -48,15 +48,21 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.DisplayCompat;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.ImageScaleType;
-import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
-import com.nostra13.universalimageloader.utils.StorageUtils;
+
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.encode.Contents;
+import com.google.zxing.encode.QRCodeEncoder;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+
 import org.fdroid.fdroid.compat.FileCompat;
 import org.fdroid.fdroid.data.App;
 import org.fdroid.fdroid.data.Repo;
@@ -94,6 +100,10 @@ import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Single;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+
 public final class Utils {
 
     private static final String TAG = "Utils";
@@ -114,8 +124,7 @@ public final class Utils {
             "%.0f B", "%.0f KiB", "%.1f MiB", "%.2f GiB",
     };
 
-    private static DisplayImageOptions.Builder defaultDisplayImageOptionsBuilder;
-    private static DisplayImageOptions repoAppDisplayImageOptions;
+    private static RequestOptions repoAppDisplayImageOptions;
 
     private static Pattern safePackageNamePattern;
 
@@ -155,7 +164,7 @@ public final class Utils {
      * @return the directory where cached icons/feature graphics/screenshots are stored
      */
     public static File getImageCacheDir(Context context) {
-        File cacheDir = StorageUtils.getCacheDirectory(context.getApplicationContext(), true);
+        File cacheDir = Glide.getPhotoCacheDir(context.getApplicationContext());
         return new File(cacheDir, "icons");
     }
 
@@ -473,36 +482,15 @@ public final class Utils {
     }
 
     /**
-     * Since there have been vulnerabilities in EXIF processing in Android, this
-     * disables all use of EXIF.
-     *
-     * @see <a href="https://securityaffairs.co/wordpress/51043/mobile-2/android-cve-2016-3862-flaw.html">CVE-2016-3862</a>
-     */
-    public static DisplayImageOptions.Builder getDefaultDisplayImageOptionsBuilder() {
-        if (defaultDisplayImageOptionsBuilder == null) {
-            defaultDisplayImageOptionsBuilder = new DisplayImageOptions.Builder()
-                    .cacheInMemory(true)
-                    .cacheOnDisk(true)
-                    .considerExifParams(false)
-                    .bitmapConfig(Bitmap.Config.RGB_565)
-                    .imageScaleType(ImageScaleType.EXACTLY);
-        }
-        return defaultDisplayImageOptionsBuilder;
-    }
-
-    /**
-     * Gets the {@link DisplayImageOptions} instance used to configure
-     * {@link com.nostra13.universalimageloader.core.ImageLoader} instances
+     * Gets the {@link RequestOptions} instance used to configure
+     * {@link Glide} instances
      * used to display app icons.  It lazy loads a reusable static instance.
      */
-    public static DisplayImageOptions getRepoAppDisplayImageOptions() {
+    public static RequestOptions getRepoAppDisplayImageOptions() {
         if (repoAppDisplayImageOptions == null) {
-            repoAppDisplayImageOptions = getDefaultDisplayImageOptionsBuilder()
-                    .showImageOnLoading(R.drawable.ic_repo_app_default)
-                    .showImageForEmptyUri(R.drawable.ic_repo_app_default)
-                    .showImageOnFail(R.drawable.ic_repo_app_default)
-                    .displayer(new FadeInBitmapDisplayer(200, true, true, false))
-                    .build();
+            repoAppDisplayImageOptions = new RequestOptions()
+                    .error(R.drawable.ic_repo_app_default)
+                    .fallback(R.drawable.ic_repo_app_default);
         }
         return repoAppDisplayImageOptions;
     }
@@ -513,19 +501,8 @@ public final class Utils {
      * We fall back to the placeholder icon otherwise.
      */
     public static void setIconFromRepoOrPM(@NonNull App app, ImageView iv, Context context) {
-        if (app.getIconUrl(iv.getContext()) == null) {
-            try {
-                iv.setImageDrawable(context.getPackageManager().getApplicationIcon(app.packageName));
-            } catch (PackageManager.NameNotFoundException e) {
-                DisplayImageOptions options = Utils.getRepoAppDisplayImageOptions();
-                iv.setImageDrawable(options.shouldShowImageForEmptyUri()
-                        ? options.getImageForEmptyUri(FDroidApp.getInstance().getResources())
-                        : null);
-            }
-        } else {
-            ImageLoader.getInstance().displayImage(
-                    app.getIconUrl(iv.getContext()), iv, Utils.getRepoAppDisplayImageOptions());
-        }
+        RequestOptions options = Utils.getRepoAppDisplayImageOptions();
+        Glide.with(context).load(app.getIconUrl(iv.getContext())).apply(options).into(iv);
     }
 
     // this is all new stuff being added
@@ -977,6 +954,25 @@ public final class Utils {
             // Could not connect.
             return true;
         }
+    }
+
+    @NonNull
+    public static Single<Bitmap> generateQrBitmap(@NonNull final AppCompatActivity activity,
+                                                  @NonNull final String qrData) {
+        return Single.fromCallable(() -> {
+            // TODO: Use DisplayCompat.getMode() once it becomes available in Core 1.6.0.
+            final DisplayCompat.ModeCompat displayMode = DisplayCompat.getSupportedModes(activity,
+                    activity.getWindowManager().getDefaultDisplay())[0];
+            final int qrCodeDimension = Math.min(displayMode.getPhysicalWidth(),
+                    displayMode.getPhysicalHeight());
+            debugLog(TAG, "generating QRCode Bitmap of " + qrCodeDimension + "x" + qrCodeDimension);
+
+            return new QRCodeEncoder(qrData, null, Contents.Type.TEXT,
+                    BarcodeFormat.QR_CODE.toString(), qrCodeDimension).encodeAsBitmap();
+        })
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnError(throwable -> Log.e(TAG, "Could not encode QR as bitmap", throwable));
     }
 
     /**

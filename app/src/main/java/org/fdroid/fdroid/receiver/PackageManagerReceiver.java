@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+
 import org.fdroid.fdroid.data.InstalledAppProviderService;
 import org.fdroid.fdroid.installer.PrivilegedInstaller;
 

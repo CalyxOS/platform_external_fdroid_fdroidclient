@@ -152,7 +152,7 @@
     <string name="bad_fingerprint">Falha na fingerprint</string>
     <string name="invalid_url">Esta não é uma URL válida.</string>
     <string name="menu_changelog">Changelog</string>
-    <string name="update_notification_title">Atualizando repositórios</string>
+    <string name="banner_updating_repositories">Atualizando os repositórios</string>
     <string name="status_processing_xml_percent">Processando %2$s / %3$s (%4$d%%) de %1$s</string>
     <string name="pref_language">Idioma</string>
     <string name="pref_language_default">Padrão do sistema</string>
@@ -243,7 +243,6 @@
     <string name="permissions">Permissões</string>
     <string name="repo_details">Repositório</string>
     <string name="repo_url">Endereço</string>
-    <string name="theme_night">Noturno</string>
     <string name="menu_settings">Configurações</string>
     <string name="login_title">Autenticação necessária</string>
     <string name="login_name">Nome de usuário</string>
@@ -528,4 +527,9 @@
     <string name="send_to_fdroid_metrics_summary">Enviar dados anônimos semanalmente para F-Droid Métricas (exige Manter histórico de instalação)</string>
     <string name="send_to_fdroid_metrics">Enviar dados de uso</string>
     <string name="install_history_and_metrics">Instalar histórico e métricas</string>
+    <string name="theme_follow_system">O mesmo do sistema</string>
+    <string name="use_pure_black_dark_theme_summary">Recomendado apenas para telas OLED.</string>
+    <string name="use_pure_black_dark_theme">Use um fundo preto no tema escuro</string>
+    <string name="banner_no_data_or_wifi">Dados móveis ou WiFi indisponíveis</string>
+    <string name="banner_no_internet">Sem Internet</string>
 </resources>

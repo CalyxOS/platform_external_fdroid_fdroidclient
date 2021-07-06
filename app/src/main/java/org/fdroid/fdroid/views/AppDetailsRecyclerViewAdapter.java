@@ -30,23 +30,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.LayoutRes;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
-import androidx.core.graphics.drawable.DrawableCompat;
-import androidx.core.os.ConfigurationCompat;
-import androidx.core.os.LocaleListCompat;
-import androidx.core.text.HtmlCompat;
-import androidx.core.text.util.LinkifyCompat;
-import androidx.core.view.ViewCompat;
-import androidx.core.widget.TextViewCompat;
-import androidx.gridlayout.widget.GridLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.LinearSmoothScroller;
-import androidx.recyclerview.widget.RecyclerView;
+
 import org.apache.commons.io.FilenameUtils;
 import org.fdroid.fdroid.Preferences;
 import org.fdroid.fdroid.R;
@@ -67,6 +51,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.core.os.ConfigurationCompat;
+import androidx.core.os.LocaleListCompat;
+import androidx.core.text.HtmlCompat;
+import androidx.core.text.util.LinkifyCompat;
+import androidx.core.view.ViewCompat;
+import androidx.core.widget.TextViewCompat;
+import androidx.gridlayout.widget.GridLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearSmoothScroller;
+import androidx.recyclerview.widget.RecyclerView;
 
 @SuppressWarnings("LineLength")
 public class AppDetailsRecyclerViewAdapter
@@ -260,7 +262,8 @@ public class AppDetailsRecyclerViewAdapter
                 uriIsSetAndCanBeOpened(app.getBitcoinUri()) ||
                 uriIsSetAndCanBeOpened(app.getLitecoinUri()) ||
                 uriIsSetAndCanBeOpened(app.getFlattrUri()) ||
-                uriIsSetAndCanBeOpened(app.getLiberapayUri());
+                uriIsSetAndCanBeOpened(app.getLiberapayUri()) ||
+                uriIsSetAndCanBeOpened(app.getOpenCollectiveUri());
     }
 
     private void notifyVersionViewsChanged() {
@@ -842,11 +845,6 @@ public class AppDetailsRecyclerViewAdapter
         protected void updateExpandableItem(boolean isExpanded) {
             final int icon = getIcon();
             Drawable iconDrawable = ContextCompat.getDrawable(headerView.getContext(), icon);
-            if (icon == R.drawable.ic_access_time) {
-                assert iconDrawable != null;
-                iconDrawable = DrawableCompat.wrap(iconDrawable).mutate();
-                DrawableCompat.setTint(iconDrawable, Color.parseColor("#B4B4B4"));
-            }
             final Drawable expandLess = ContextCompat.getDrawable(headerView.getContext(), R.drawable.ic_expand_less);
             final Drawable expandMore = ContextCompat.getDrawable(headerView.getContext(), R.drawable.ic_expand_more);
             TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(headerView,
@@ -875,7 +873,7 @@ public class AppDetailsRecyclerViewAdapter
 
         @DrawableRes
         protected int getIcon() {
-            return R.drawable.ic_access_time;
+            return R.drawable.ic_versions;
         }
     }
 
@@ -886,7 +884,7 @@ public class AppDetailsRecyclerViewAdapter
             super(view);
             headerView = (TextView) view.findViewById(R.id.information);
             final Drawable accessTime = DrawableCompat.wrap(ContextCompat.getDrawable(headerView.getContext(),
-                    R.drawable.ic_access_time)).mutate();
+                    R.drawable.ic_versions)).mutate();
             DrawableCompat.setTint(accessTime, Color.parseColor("#B4B4B4"));
             TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(headerView,
                     accessTime, null, null, null);

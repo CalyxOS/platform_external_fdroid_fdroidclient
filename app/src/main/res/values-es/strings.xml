@@ -6,7 +6,7 @@
     <string name="delete">Eliminar</string>
     <string name="enable_nfc_send">Habilitar envío NFC…</string>
     <string name="cache_downloaded">Mantener las aplicaciones en caché</string>
-    <string name="updates">Avisos</string>
+    <string name="updates">Actualizaciones</string>
     <string name="other">Otros</string>
     <string name="update_interval">Intervalo de actualización automática</string>
     <string name="notify">Mostrar actualizaciones disponibles</string>
@@ -147,7 +147,7 @@
     <string name="bad_fingerprint">Huella digital incorrecta</string>
     <string name="invalid_url">No es una URL válida.</string>
     <string name="menu_changelog">Historial de cambios</string>
-    <string name="update_notification_title">Actualizando repositorios</string>
+    <string name="banner_updating_repositories">Actualizando repositorios</string>
     <string name="status_processing_xml_percent">Procesando %2$s / %3$s (%4$d%%) desde %1$s</string>
     <string name="pref_language">Idioma</string>
     <string name="pref_language_default">Predeterminado del sistema</string>
@@ -230,7 +230,6 @@
     <string name="repo_details">Repositorio</string>
     <string name="repo_url">Dirección</string>
     <string name="download_error">¡Descarga fallida!</string>
-    <string name="theme_night">Noche</string>
     <string name="system_install_denied_permissions">¡No se han concedido permisos de sistema a la extensión! ¡Por
         favor, informa sobre este fallo!
     </string>
@@ -509,12 +508,17 @@
     <string name="notification_channel_installs_description">Muestra notificaciones de instalación de aplicaciones.</string>
     <string name="notification_channel_installs_title">Instalaciones</string>
     <string name="menu_show_install_history">Mostrar historial de instalación</string>
-    <string name="menu_show_fdroid_metrics_report">Mostrar el informe de métricas</string>
-    <string name="toast_metrics_in_install_history">El informe %s se puede ver en el visor del historial de instalaciones</string>
-    <string name="send_to_fdroid_metrics_summary">Enviar estadísticas anónimas a F-Droid Metrics (necesita que se mantenga el historial de instalación)</string>
-    <string name="send_to_fdroid_metrics">Enviar estadísticas de uso</string>
+    <string name="menu_show_fdroid_metrics_report">Mostrar reporte de métricas</string>
+    <string name="toast_metrics_in_install_history">El reporte de métricas %s se puede visualizar en el visor del historial de instalaciones</string>
+    <string name="send_to_fdroid_metrics_summary">Enviar información anónima semanalmente a métricas F-Droid(requiere historial de instalación Keep)</string>
+    <string name="send_to_fdroid_metrics">Enviar información de uso</string>
     <string name="fdroid_metrics_report">%s Reporte de métricas</string>
     <string name="install_history_and_metrics">Instalar historial y métricas</string>
     <string name="send_fdroid_metrics_json">%s reporte de métricas como un archivo JSON</string>
-    <string name="send_fdroid_metrics_report">Enviar %s informe de métricas</string>
+    <string name="send_fdroid_metrics_report">Enviar reporte de métricas %s</string>
+    <string name="theme_follow_system">Usar el del sistema</string>
+    <string name="use_pure_black_dark_theme_summary">Recomendado sólo para pantallas OLED.</string>
+    <string name="use_pure_black_dark_theme">Usar un fondo negro puro en el tema oscuro</string>
+    <string name="banner_no_data_or_wifi">Sin datos o WiFi activados</string>
+    <string name="banner_no_internet">Sin Internet</string>
 </resources>

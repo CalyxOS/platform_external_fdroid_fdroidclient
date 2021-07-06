@@ -378,7 +378,12 @@ This often occurs with apps installed via Google Play or other sources, if they 
     -->
     <string name="status_download_unknown_size">Downloading\n%2$s from\n%1$s</string>
     <string name="download_404">The requested file was not found.</string>
-    <string name="update_notification_title">Updating repositories</string>
+    <!-- This is a banner title, it should be maximum 30 characters -->
+    <string name="banner_updating_repositories">Updating repositories</string>
+    <!-- This is a banner title, it should be maximum 30 characters -->
+    <string name="banner_no_internet">No Internet</string>
+    <!-- This is a banner title, it should be maximum 30 characters -->
+    <string name="banner_no_data_or_wifi">No Data or WiFi enabled</string>
     <string name="status_processing_xml_percent">Processing %2$s / %3$s (%4$d%%) from %1$s</string>
     <string name="status_connecting_to_repo">Connecting to\n%1$s</string>
     <string name="status_inserting_apps">Saving app details</string>
@@ -393,6 +398,8 @@ This often occurs with apps installed via Google Play or other sources, if they 
     <string name="permissions">Permissions</string>
     <string name="no_handler_app">You don\'t have any available app that can handle %s.</string>
     <string name="theme">Theme</string>
+    <string name="use_pure_black_dark_theme">Use pure black background in dark theme</string>
+    <string name="use_pure_black_dark_theme_summary">Recommended only for OLED screens.</string>
     <string name="unsigned">Unsigned</string>
     <string name="unverified">Unverified</string>
     <string name="repo_details">Repository</string>
@@ -612,7 +619,7 @@ This often occurs with apps installed via Google Play or other sources, if they 
 
     <string name="theme_light">Light</string>
     <string name="theme_dark">Dark</string>
-    <string name="theme_night">Night</string>
+    <string name="theme_follow_system">Follow system</string>
 
     <string name="crash_dialog_title">F-Droid has crashed</string>
     <string name="crash_dialog_text">An unexpected error occurred

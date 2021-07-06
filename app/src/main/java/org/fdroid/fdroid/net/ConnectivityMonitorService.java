@@ -7,15 +7,14 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.core.app.JobIntentService;
 import androidx.core.content.ContextCompat;
 import androidx.core.net.ConnectivityManagerCompat;
 
-import android.util.Log;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import org.fdroid.fdroid.FDroidApp;
-import org.fdroid.fdroid.Preferences;
 
 import java.net.Inet6Address;
 import java.net.InetAddress;
@@ -132,7 +131,6 @@ public class ConnectivityMonitorService extends JobIntentService {
     protected void onHandleWork(@NonNull Intent intent) {
         if (ACTION_START.equals(intent.getAction())) {
             FDroidApp.networkState = getNetworkState(this);
-            ImageLoader.getInstance().denyNetworkDownloads(!Preferences.get().isBackgroundDownloadAllowed());
         }
     }
 }

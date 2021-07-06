@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="theme_night">Night</string>
     <string name="theme_dark">Dark</string>
     <string name="theme_light">Light</string>
     <string name="status_inserting_apps">Saving app details</string>
@@ -57,9 +56,9 @@
         <item quantity="other">%1$d Updates</item>
     </plurals>
     <string name="notification_content_single_installed">Successfully installed</string>
-    <string name="notification_content_single_installing">Installing \"%1$s\"…</string>
-    <string name="notification_content_single_downloading_update">Downloading update for \"%1$s\"…</string>
-    <string name="notification_content_single_downloading">Downloading \"%1$s\"…</string>
+    <string name="notification_content_single_installing">Installing ‘%1$s’…</string>
+    <string name="notification_content_single_downloading_update">Downloading update for ‘%1$s’…</string>
+    <string name="notification_content_single_downloading">Downloading ‘%1$s’…</string>
     <string name="notification_title_single_install_error">Install Failed</string>
     <string name="notification_title_single_ready_to_install_update">Update ready to install</string>
     <string name="notification_title_single_ready_to_install">Ready to install</string>
@@ -207,7 +206,7 @@
     <string name="status_inserting_x_apps">Saving app details (%1$d/%2$d) from %3$s</string>
     <string name="status_connecting_to_repo">Connecting to
 \n%1$s</string>
-    <string name="update_notification_title">Updating repositories</string>
+    <string name="banner_updating_repositories">Updating repositories</string>
     <string name="download_404">The requested file was not found.</string>
     <string name="status_download_unknown_size">Downloading
 \n%2$s from
@@ -218,12 +217,12 @@
     <string name="hide_on_long_search_press_summary">Long pressing the search button will hide the app</string>
     <string name="hide_on_long_search_press_title">Hide with search button</string>
     <string name="hiding_dialog_warning">Warning: Any app shortcut on the home screen will also be removed and needs to be re-added manually.</string>
-    <string name="hiding_dialog_message">Are you sure you want to remove %1$s from the launcher\? Only typing \"%2$d\" in the fake %3$s app can restore it.</string>
+    <string name="hiding_dialog_message">Are you sure you want to remove %1$s from the launcher\? Only typing ‘%2$d’ in the fake %3$s app can restore it.</string>
     <string name="hiding_dialog_title">Hide %s Now</string>
     <string name="hiding_calculator">Calculator</string>
     <string name="panic_reset_repos_summary">Force the repo setup back to defaults</string>
     <string name="panic_reset_repos_title">Reset repos</string>
-    <string name="panic_hide_warning_message">In a panic event, this will remove %1$s from the launcher. Only typing \"%2$d\" in the fake %3$s app can restore it.</string>
+    <string name="panic_hide_warning_message">In a panic event, this will remove %1$s from the launcher. Only typing ‘%2$d’ in the fake %3$s app can restore it.</string>
     <string name="panic_hide_warning_title">Remember how to restore</string>
     <string name="panic_hide_summary">App will hide itself</string>
     <string name="panic_hide_title">Hide %s</string>
@@ -295,12 +294,12 @@
     <string name="menu_bitcoin">Bitcoin</string>
     <string name="menu_downgrade">Downgrade</string>
     <string name="menu_translation">Translation</string>
-    <string name="menu_source">Source Code</string>
-    <string name="menu_license">License: %s</string>
+    <string name="menu_source">Source code</string>
+    <string name="menu_license">Licence: %s</string>
     <string name="menu_video">Video</string>
     <string name="menu_changelog">Changelog</string>
     <string name="menu_issues">Issues</string>
-    <string name="menu_email">E-Mail Author</string>
+    <string name="menu_email">E-mail author</string>
     <string name="menu_website">Website</string>
     <string name="menu_ignore_this">Ignore This Update</string>
     <string name="menu_ignore_all">Ignore All Updates</string>
@@ -367,7 +366,7 @@
     <string name="app_installed">Installed</string>
     <string name="app_incompatible">Incompatible</string>
     <string name="app_suggested">Suggested</string>
-    <string name="about_license">License</string>
+    <string name="about_license">Licence</string>
     <string name="about_source">Source code</string>
     <string name="about_forum">Support forum</string>
     <string name="about_site">Website</string>
@@ -375,7 +374,7 @@
     <string name="app_details__no_versions__explain_incompatible_signatures">The installed version is not compatible with any available versions. Uninstalling the app will enable you to view and install compatible versions. This often occurs with apps installed via Google Play or other sources, if they are signed by a different certificate.</string>
     <string name="app_details__no_versions__none_compatible_with_device">No versions compatible with device</string>
     <string name="app_details__no_versions__no_compatible_signatures">No versions with compatible signature</string>
-    <string name="app_details__no_versions__show_incompat_versions">To show incompatible versions here anyway, enable the \"%1$s\" setting.</string>
+    <string name="app_details__no_versions__show_incompat_versions">To show incompatible versions here anyway, enable the ‘%1$s’ setting.</string>
     <string name="app_details__incompatible_mismatched_signature">Different signature to installed version</string>
     <string name="app_details_donate_prompt">%1$s is created by %2$s. Buy them a coffee!</string>
     <string name="app_details_donate_prompt_unknown_author">Buy the developers of %1$s a coffee!</string>
@@ -425,7 +424,7 @@
     <string name="cache_downloaded">Keep cached apps</string>
     <string name="prompt_to_send_crash_reports_summary">Gather data about crashes and ask to send them to the developer</string>
     <string name="prompt_to_send_crash_reports">Prompt to send crash reports</string>
-    <string name="enable_nfc_send">Enable NFC Send…</string>
+    <string name="enable_nfc_send">Enable NFC send…</string>
     <string name="delete">Delete</string>
     <string name="by_author_format">by %s</string>
     <string name="version">Version</string>
@@ -498,4 +497,18 @@
     <string name="updates">Updates</string>
     <string name="ok">OK</string>
     <string name="app_name">F-Droid</string>
+    <string name="theme_follow_system">Follow system</string>
+    <string name="use_pure_black_dark_theme_summary">Recommended only for OLED screens.</string>
+    <string name="use_pure_black_dark_theme">Use pure black background in dark theme</string>
+    <string name="menu_show_install_history">Show install history</string>
+    <string name="menu_show_fdroid_metrics_report">Show metrics report</string>
+    <string name="toast_metrics_in_install_history">The %s Metric report is viewable in the Install History viewer</string>
+    <string name="send_to_fdroid_metrics_summary">Sends anonymous data weekly to F-Droid Metrics (requires Keep install history)</string>
+    <string name="send_to_fdroid_metrics">Send usage data</string>
+    <string name="fdroid_metrics_report">%s metrics report</string>
+    <string name="install_history_and_metrics">Install history and metrics</string>
+    <string name="send_fdroid_metrics_json">%s metrics report as JSON file</string>
+    <string name="send_fdroid_metrics_report">Send %s metrics report</string>
+    <string name="banner_no_data_or_wifi">No Data or Wi-Fi enabled</string>
+    <string name="banner_no_internet">No Internet</string>
 </resources>

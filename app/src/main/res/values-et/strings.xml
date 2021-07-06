@@ -70,7 +70,7 @@
     <string name="adding_apks_format">%s lisatakse hoidlasse…</string>
     <string name="linking_apks">APK faile lingitakse hoidlasse…</string>
     <string name="copying_icons">Rakenduste ikoone kopeeritakse hoidlasse…</string>
-    <string name="update_notification_title">Hoidlaid värskendatakse</string>
+    <string name="banner_updating_repositories">Värskendan hoidlaid</string>
     <string name="repos_unchanged">Kõik hoidlad on kaasajastaud</string>
     <string name="all_other_repos_fine">Kõik ülejäänud hoidlad vigu ei põhjustanud.</string>
     <string name="repo_details">Hoidla</string>
@@ -263,7 +263,6 @@
     <string name="keep_forever">Igavesti</string>
     <string name="theme_light">Hele</string>
     <string name="theme_dark">Tume</string>
-    <string name="theme_night">Öö</string>
     <string name="crash_dialog_title">F-Droidi tabas krahh</string>
     <string name="crash_dialog_comment_prompt">Sa saad lisada täiendavat informatsiooni ja kommentaare siia:</string>
     <string name="swap_join_same_wifi_desc">WiFi kaudu vahetamiseks peate olema samas võrgus. Kui sul puudub ligipääs
@@ -518,4 +517,9 @@
     <string name="install_history_and_metrics">Paigalda ajalugu ja meetrika</string>
     <string name="send_fdroid_metrics_json">%s meetrika JSON failina</string>
     <string name="send_fdroid_metrics_report">Saada %s meetrika raport</string>
+    <string name="theme_follow_system">Kasuta üldist teemat</string>
+    <string name="use_pure_black_dark_theme_summary">Soovitame kasutamiseks vaid OLED-ekraanidel.</string>
+    <string name="use_pure_black_dark_theme">Tumedas teemas kasuta musta tausta</string>
+    <string name="banner_no_data_or_wifi">3G, 4G või WiFi pole kasutusel</string>
+    <string name="banner_no_internet">Internetiühendus puudub</string>
 </resources>

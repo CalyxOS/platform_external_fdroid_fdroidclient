@@ -35,6 +35,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,7 +46,7 @@ import androidx.loader.content.CursorLoader;
 import androidx.loader.content.Loader;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.nostra13.universalimageloader.core.ImageLoader;
+
 import org.fdroid.fdroid.FDroidApp;
 import org.fdroid.fdroid.R;
 import org.fdroid.fdroid.Utils;
@@ -87,7 +88,9 @@ public class AppListActivity extends AppCompatActivity implements LoaderManager.
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        ((FDroidApp) getApplication()).applyTheme(this);
+        FDroidApp fdroidApp = (FDroidApp) getApplication();
+        fdroidApp.applyPureBlackBackgroundInDarkTheme(this);
+
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_app_list);
@@ -120,11 +123,9 @@ public class AppListActivity extends AppCompatActivity implements LoaderManager.
 
         sortImage = (ImageView) findViewById(R.id.sort);
         final Drawable lastUpdated = DrawableCompat.wrap(ContextCompat.getDrawable(this,
-                R.drawable.ic_access_time)).mutate();
-        DrawableCompat.setTint(lastUpdated, FDroidApp.isAppThemeLight() ? Color.BLACK : Color.WHITE);
+                R.drawable.ic_last_updated)).mutate();
         final Drawable words = DrawableCompat.wrap(ContextCompat.getDrawable(AppListActivity.this,
                 R.drawable.ic_sort)).mutate();
-        DrawableCompat.setTint(words, FDroidApp.isAppThemeLight() ? Color.BLACK : Color.WHITE);
         sortImage.setImageDrawable(SortClause.WORDS.equals(sortClauseSelected) ? words : lastUpdated);
         sortImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,22 +180,6 @@ public class AppListActivity extends AppCompatActivity implements LoaderManager.
         appView.setHasFixedSize(true);
         appView.setLayoutManager(new LinearLayoutManager(this));
         appView.setAdapter(appAdapter);
-        appView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            private final ImageLoader imageLoader = ImageLoader.getInstance();
-
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                switch (newState) {
-                    case RecyclerView.SCROLL_STATE_DRAGGING:
-                        imageLoader.pause();
-                        break;
-                    case RecyclerView.SCROLL_STATE_IDLE:
-                        imageLoader.resume();
-                        break;
-                }
-                super.onScrollStateChanged(recyclerView, newState);
-            }
-        });
 
         parseIntentForSearchQuery();
     }
@@ -263,6 +248,7 @@ public class AppListActivity extends AppCompatActivity implements LoaderManager.
     public void onSearchTermsChanged(@Nullable String category, @NonNull String searchTerms) {
         this.category = category;
         this.searchTerms = searchTerms;
+        appView.scrollToPosition(0);
         getSupportLoaderManager().restartLoader(0, null, this);
         if (TextUtils.isEmpty(searchTerms)) {
             removeSavedSearchSettings(this, SEARCH_TERMS_KEY);

@@ -37,7 +37,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
+import com.bumptech.glide.Glide;
 
 import org.fdroid.fdroid.FDroidApp;
 import org.fdroid.fdroid.R;
@@ -79,8 +79,10 @@ public class InstallConfirmActivity extends AppCompatActivity implements OnCance
         TabHost tabHost = (TabHost) findViewById(android.R.id.tabhost);
 
         appName.setText(app.name);
-        ImageLoader.getInstance().displayImage(app.getIconUrl(this), appIcon,
-                Utils.getRepoAppDisplayImageOptions());
+        Glide.with(this)
+                .load(app.getIconUrl(this))
+                .apply(Utils.getRepoAppDisplayImageOptions())
+                .into(appIcon);
 
         tabHost.setup();
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
@@ -174,9 +176,10 @@ public class InstallConfirmActivity extends AppCompatActivity implements OnCance
 
     @Override
     protected void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+        FDroidApp fdroidApp = (FDroidApp) getApplication();
+        fdroidApp.applyPureBlackBackgroundInDarkTheme(this);
 
-        ((FDroidApp) getApplication()).applyTheme(this);
+        super.onCreate(icicle);
 
         intent = getIntent();
         Uri uri = intent.getData();

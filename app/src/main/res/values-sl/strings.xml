@@ -75,7 +75,7 @@
     <string name="app_details">Podrobnosti aplikacije</string>
     <string name="about_title">Več o F-Droid</string>
     <string name="app_list__name__downloading_in_progress">Prenašanje %1$s</string>
-    <string name="app_list__name__successfully_installed">%1$s nameščena</string>
+    <string name="app_list__name__successfully_installed">%1$s nameščen</string>
     <string name="more">Več</string>
     <string name="less">Manj</string>
     <string name="antitracklist">Ta aplikacija vam sledi in poroča o vaši aktivnosti</string>
@@ -229,7 +229,7 @@
     <string name="hide_on_long_search_press_title">Skrij iskalni gumb</string>
     <string name="hide_on_long_search_press_summary">Dolg pritisk na gumb iskanje bo skril aplikacije</string>
     <string name="download_404">Zahtevana datoteka ni bila najdena.</string>
-    <string name="update_notification_title">Posodabljanje skladišča aplikacij</string>
+    <string name="banner_updating_repositories">Posodabljanje skladišča aplikacij</string>
     <string name="repos_unchanged">Vsa skladišča aplikacij so posodobljena</string>
     <string name="global_error_updating_repos">Med posodobitvijo aplikacije %s je prišlo do napake</string>
     <string name="no_permissions">Ni dovoljenj</string>
@@ -384,7 +384,6 @@
     <string name="status_inserting_apps">Shranjujem podrobnosti aplikacije</string>
     <string name="theme_light">Svetlo</string>
     <string name="theme_dark">Temna</string>
-    <string name="theme_night">Noč</string>
     <string name="malformed_repo_uri">Neskladen URI repozitorija ne bo upoštevan: %s</string>
     <string name="touch_to_configure_local_repo">Tepnite za prikaz podrobnosti in dovoljenje drugim za izmenjavo vaših aplikacij.</string>
     <string name="writing_index_jar">Zapisovanje podpisanega indeksa (index.jar) …</string>

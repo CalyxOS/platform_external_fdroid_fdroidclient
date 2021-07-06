@@ -8,8 +8,8 @@
     <string name="updates">Aktualizacje</string>
     <string name="other">Inne</string>
     <string name="notify">Pokaż dostępne aktualizacje</string>
-    <string name="system_installer">Uprzywilejowany dodatek</string>
-    <string name="system_installer_on">Używaj uprzywilejowanego dodatku, aby instalować, aktualizować i usuwać paczki</string>
+    <string name="system_installer">Uprzywilejowane rozszerzenie</string>
+    <string name="system_installer_on">Używaj uprzywilejowanego rozszerzenia, aby instalować, aktualizować i usuwać paczki</string>
     <string name="local_repo_name">Nazwa lokalnego repozytorium</string>
     <string name="local_repo_name_summary">Wyświetlana nazwa repozytorium lokalnego: %s</string>
     <string name="local_repo_https_on">Korzystaj z zabezpieczonego połączenia HTTPS</string>
@@ -132,7 +132,7 @@
     <string name="antitracklist">Ta aplikacja śledzi i raportuje Twoją aktywność</string>
     <string name="show_incompat_versions_on">Pokazuj aplikacje, które są niekompatybilne z tym urządzeniem</string>
     <string name="status_download">Pobieranie\n%2$s / %3$s (%4$d%%) z\n%1$s</string>
-    <string name="update_notification_title">Aktualizowanie repozytoriów</string>
+    <string name="banner_updating_repositories">Aktualizacja repozytoriów</string>
     <string name="status_processing_xml_percent">Przetwarzanie %2$s / %3$s (%4$d%%) z %1$s</string>
     <string name="no_permissions">Brak uprawnień</string>
     <string name="unsigned">Brak podpisu</string>
@@ -239,7 +239,6 @@
     <string name="less">Mniej</string>
     <string name="status_download_unknown_size">Pobieranie\n%2$s z\n%1$s</string>
     <string name="permissions">Uprawnienia</string>
-    <string name="theme_night">Nocny</string>
     <string name="menu_settings">Ustawienia</string>
     <string name="login_title">Wymagane uwierzytelnienie</string>
     <string name="login_name">Użytkownik</string>
@@ -541,4 +540,9 @@
     <string name="install_history_and_metrics">Historia i metryka instalacji</string>
     <string name="send_fdroid_metrics_json">%s raport metryczny jako plik JSON</string>
     <string name="send_fdroid_metrics_report">Wyślij %s Raport metryczny</string>
+    <string name="theme_follow_system">Systemowy</string>
+    <string name="use_pure_black_dark_theme_summary">Zalecane jedynie dla ekranów OLED.</string>
+    <string name="use_pure_black_dark_theme">Użyj czarnego tła w ciemnym motywie</string>
+    <string name="banner_no_data_or_wifi">Brak włączonej transmisji danych lub Wi-Fi</string>
+    <string name="banner_no_internet">Brak Internetu</string>
 </resources>

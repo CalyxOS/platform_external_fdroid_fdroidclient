@@ -237,7 +237,7 @@
 \n%2$s o
 \n%1$s</string>
     <string name="download_404">Ni chanfuwyd y ffeil honno.</string>
-    <string name="update_notification_title">Yn diweddaru ystorfeydd</string>
+    <string name="banner_updating_repositories">Yn diweddaru ystorfeydd</string>
     <string name="status_processing_xml_percent">Yn prosesu %2$s / %3$s (%4$d%%) o %1$s</string>
     <string name="status_connecting_to_repo">Yn cysylltu â
 \n%1$s</string>
@@ -346,7 +346,6 @@
     <string name="keep_forever">Am byth</string>
     <string name="theme_light">Golau</string>
     <string name="theme_dark">Tywyll</string>
-    <string name="theme_night">Nos</string>
     <string name="crash_dialog_title">Mae F-Droid wedi chwalu</string>
     <string name="crash_dialog_text">Bu gwall annisgwyl a orfododd yr ap i stopio. Hoffet anfon neges e-bost gyda\'r manylion er mwyn trwsio\'r broblem\?</string>
     <string name="crash_dialog_comment_prompt">Gellir ychwanegu gwybodaeth ychwanegol a sylwadau yma:</string>

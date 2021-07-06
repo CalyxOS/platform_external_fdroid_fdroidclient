@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,11 +21,10 @@ import androidx.loader.app.LoaderManager;
 import androidx.loader.content.CursorLoader;
 import androidx.loader.content.Loader;
 import androidx.recyclerview.widget.RecyclerView;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
+
+import com.bumptech.glide.Glide;
+
 import org.fdroid.fdroid.R;
-import org.fdroid.fdroid.Utils;
 import org.fdroid.fdroid.data.AppProvider;
 import org.fdroid.fdroid.data.Schema;
 import org.fdroid.fdroid.data.Schema.AppMetadataTable.Cols;
@@ -43,7 +43,6 @@ public class CategoryController extends RecyclerView.ViewHolder implements Loade
 
     private final AppCompatActivity activity;
     private final LoaderManager loaderManager;
-    private final DisplayImageOptions displayImageOptions;
     private static final int NUM_OF_APPS_PER_CATEGORY_ON_OVERVIEW = 20;
 
     private String currentCategory;
@@ -66,10 +65,6 @@ public class CategoryController extends RecyclerView.ViewHolder implements Loade
         RecyclerView appCards = (RecyclerView) itemView.findViewById(R.id.app_cards);
         appCards.setAdapter(appCardsAdapter);
         appCards.addItemDecoration(new ItemDecorator(activity));
-
-        displayImageOptions = Utils.getDefaultDisplayImageOptionsBuilder()
-                .displayer(new FadeInBitmapDisplayer(100, true, true, false))
-                .build();
     }
 
     public static String translateCategory(Context context, String categoryName) {
@@ -98,7 +93,7 @@ public class CategoryController extends RecyclerView.ViewHolder implements Loade
             image.setImageDrawable(null);
         } else {
             image.setColour(ContextCompat.getColor(activity, R.color.fdroid_blue));
-            ImageLoader.getInstance().displayImage("drawable://" + categoryImageId, image, displayImageOptions);
+            Glide.with(activity).load("drawable://" + categoryImageId).into(image);
         }
     }
 

@@ -1,3 +1,35 @@
+### 1.13 (2021-07-05)
+
+* Overhaul icon loading using Glide (@proletarius101)
+
+* New adaptive icon (@12people)
+
+* Code modernization (@Isira-Seneviratne)
+
+### 1.13-alpha1 (2021-06-02)
+
+* Stop repeated updates of Trichrome Library
+
+* More changes to follow Material Design (@proletarius101)
+
+* Improve OpenCollective badge (@ConnyDuck)
+
+### 1.13-alpha0 (2021-04-22)
+
+* Theme support tied to built-in Android themes (@proletarius101)
+
+* New top banner notifications: "No Internet" and "No Data or WiFi enabled"
+
+* Improved handling of USB-OTG and SD Card repos and mirrors
+
+### 1.12.1 (2021-04-12)
+
+* Fix trove4j verification error
+
+### 1.12 (2021-04-06)
+
+* Sync translations
+
 ### 1.12-alpha3 (2021-03-10)
 
 * Opt-in F-Droid Metrics

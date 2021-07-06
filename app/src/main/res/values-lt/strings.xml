@@ -157,13 +157,13 @@
     <string name="hide_on_long_search_press_title">Paslėpti su paieškos mygtuku</string>
     <string name="hide_on_long_search_press_summary">Ilgai palaikus paieškos mygtuka programa bus paslėpta</string>
     <string name="download_404">Užklaustas failas nebuvo rastas.</string>
-    <string name="update_notification_title">Atnaujinamos saugyklos</string>
+    <string name="banner_updating_repositories">Atnaujinamos saugyklos</string>
     <string name="status_inserting_x_apps">Saugojama programos informacija (%1$d/%2$d) nuo %3$s</string>
     <string name="all_other_repos_fine">Visos kitos saugyklos nesukūrė klaidų.</string>
     <string name="no_permissions">Nėra leidimų</string>
     <string name="permissions">Leidimai</string>
     <string name="repo_url">Adresas</string>
-    <string name="not_on_same_wifi">Jūsų įrenginys prijungtas prie skirtingo Wi-Fi, nei tik ką pridėta saugykla! Pabandykite prisijungti prie šio Wi-Fi: %s</string>
+    <string name="not_on_same_wifi">Jūsų įrenginys prijungtas prie skirtingo Wi-Fi, nei tik ką pridėta vietinė saugykla! Pabandykite prisijungti prie šio tinklo: %s</string>
     <string name="by_author_format">autoriai %s</string>
     <string name="prompt_to_send_crash_reports_summary">Rinkti duomenis apie strigtis ir klausti ar siųsti juos programos kūrėjui</string>
     <string name="hide_all_notifications">Slėpti visus pranešimus</string>
@@ -340,7 +340,6 @@
     <string name="status_processing_xml_percent">Apdorojama %2$s / %3$s (%4$d%%) iš %1$s</string>
     <string name="theme_dark">Tamsus</string>
     <string name="theme_light">Šviesus</string>
-    <string name="theme_night">Naktinis</string>
     <string name="enable_proxy_summary">Naudoti HTTP Proxy visiems ryšiams</string>
     <string name="malformed_repo_uri">Nepaisoma netaisyklingo saugyklos URI: %s</string>
     <string name="repo_add_mirror">Pridėti tinklavietę</string>

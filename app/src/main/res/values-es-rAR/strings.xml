@@ -287,7 +287,7 @@
 \n%2$s desde
 \n%1$s</string>
     <string name="download_404">El archivo pedido no fue encontrado.</string>
-    <string name="update_notification_title">Actualizando repositorios</string>
+    <string name="banner_updating_repositories">Actualizando repositorios</string>
     <string name="status_processing_xml_percent">Procesando %2$s / %3$s (%4$d%%) de %1$s</string>
     <string name="status_connecting_to_repo">Conectando a 
 \n%1$s</string>
@@ -420,7 +420,6 @@
     <string name="keep_forever">Siempre</string>
     <string name="theme_light">Claro</string>
     <string name="theme_dark">Oscuro</string>
-    <string name="theme_night">Noche</string>
     <string name="crash_dialog_comment_prompt">Podés añadir información extra y comentarios acá:</string>
     <plurals name="notification_summary_more">
         <item quantity="one">+%1$d más…</item>
@@ -507,4 +506,9 @@
     <string name="install_history_and_metrics">Historial de instalaciones y métricas</string>
     <string name="send_fdroid_metrics_json">%s métricas como archivos JSON</string>
     <string name="send_fdroid_metrics_report">Enviar %s Métricas de reportes</string>
+    <string name="theme_follow_system">Usar el del sistema</string>
+    <string name="use_pure_black_dark_theme_summary">Recomendado solo para pantallas OLED.</string>
+    <string name="use_pure_black_dark_theme">Usar un fondo negro puro en el tema oscuro</string>
+    <string name="banner_no_data_or_wifi">Sin datos o WiFi activo</string>
+    <string name="banner_no_internet">Sin Internet</string>
 </resources>

@@ -139,7 +139,6 @@
     <string name="interval_1h">Tarkista päivitykset tunnin välein</string>
     <string name="theme_light">Vaalea</string>
     <string name="theme_dark">Tumma</string>
-    <string name="theme_night">Musta</string>
     <string name="uninstall_confirm">Haluatko poistaa tämän sovelluksen?</string>
     <string name="allPerms">Kaikki</string>
     <string name="newPerms">Uusi</string>
@@ -164,7 +163,7 @@
     <string name="show_incompat_versions_on">Näytä sovellusversiot, jotka eivät ole yhteensopivia laitteesi kanssa</string>
     <string name="useTor">Käytä Tor-verkkoa</string>
     <string name="useTorSummary">Pakota latausliikenne Tor-verkon kautta yksityisyyden lisäämiseksi. Vaatii Orbotin</string>
-    <string name="update_notification_title">Päivitetään sovelluslähteitä</string>
+    <string name="banner_updating_repositories">Päivitetään sovelluslähteitä</string>
     <string name="status_inserting_apps">Tallennetaan sovelluksen tietoja</string>
     <string name="no_permissions">Ei käyttöoikeuksia</string>
     <string name="permissions">Käyttöluvat</string>
@@ -500,4 +499,7 @@
     <string name="notification_channel_swaps_description">Näyttää P2P-sovelluksen vaihto-ilmoitukset.</string>
     <string name="notification_channel_installs_description">Näyttää sovelluksen asennusilmoitukset.</string>
     <string name="notification_channel_installs_title">Asennukset</string>
+    <string name="use_pure_black_dark_theme_summary">Suositellaan ainoastaan OLED-näytöille.</string>
+    <string name="use_pure_black_dark_theme">Käytä täysin mustaa taustaa tummassa teemassa</string>
+    <string name="theme_follow_system">Sama kuin järjestelmässä</string>
 </resources>

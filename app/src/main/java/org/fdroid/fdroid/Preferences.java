@@ -30,8 +30,7 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.text.format.DateUtils;
 import android.util.Log;
-import androidx.core.content.ContextCompat;
-import androidx.preference.PreferenceManager;
+
 import org.fdroid.fdroid.installer.PrivilegedInstaller;
 import org.fdroid.fdroid.net.ConnectivityMonitorService;
 
@@ -43,6 +42,9 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+
+import androidx.core.content.ContextCompat;
+import androidx.preference.PreferenceManager;
 
 /**
  * Handles shared preferences for FDroid, looking after the names of
@@ -87,6 +89,7 @@ public final class Preferences implements SharedPreferences.OnSharedPreferenceCh
     public static final String PREF_AUTO_DOWNLOAD_INSTALL_UPDATES = "updateAutoDownload";
     public static final String PREF_UPDATE_NOTIFICATION_ENABLED = "updateNotify";
     public static final String PREF_THEME = "theme";
+    public static final String PREF_USE_PURE_BLACK_DARK_THEME = "usePureBlackDarkTheme";
     public static final String PREF_SHOW_INCOMPAT_VERSIONS = "incompatibleVersions";
     public static final String PREF_SHOW_ANTI_FEATURE_APPS = "showAntiFeatureApps";
     public static final String PREF_FORCE_TOUCH_APPS = "ignoreTouchscreen";
@@ -151,7 +154,8 @@ public final class Preferences implements SharedPreferences.OnSharedPreferenceCh
     public enum Theme {
         light,
         dark,
-        night,
+        followSystem,
+        night, // Obsolete
         lightWithDarkActionBar, // Obsolete
     }
 
@@ -393,6 +397,10 @@ public final class Preferences implements SharedPreferences.OnSharedPreferenceCh
 
     public Theme getTheme() {
         return Theme.valueOf(preferences.getString(Preferences.PREF_THEME, null));
+    }
+
+    public boolean isPureBlack() {
+        return preferences.getBoolean(Preferences.PREF_USE_PURE_BLACK_DARK_THEME, false);
     }
 
     public boolean isLocalRepoHttpsEnabled() {

@@ -17,9 +17,9 @@
     <string name="no">Nu</string>
     <string name="repo_add_title">Adaugă depozit nou de aplicații</string>
     <string name="repo_add_add">Adaugă</string>
-    <string name="cancel">Anulați</string>
+    <string name="cancel">Cancel</string>
     <string name="enable">Activează</string>
-    <string name="menu_search">Căutați</string>
+    <string name="menu_search">Caută</string>
     <string name="menu_launch">Deschideți</string>
     <string name="menu_install">Instalează</string>
     <string name="menu_uninstall">Dezinstalează</string>
@@ -148,7 +148,7 @@
     <string name="status_download">Descărcare
 \n%2$s / %3$s (%4$d%%) din
 \n%1$s</string>
-    <string name="update_notification_title">Actualizare depozit</string>
+    <string name="banner_updating_repositories">Actualizare depozite</string>
     <string name="status_connecting_to_repo">Conectare la\n%1$s</string>
     <string name="global_error_updating_repos">Eroare la actualizare: %s</string>
     <string name="permissions">Permisiuni</string>
@@ -180,7 +180,6 @@
     <string name="swap_setting_up_wifi">Configurare Wi-Fi…</string>
     <string name="swap_connecting">Se conectează</string>
     <string name="swap_send_fdroid">Trimite F-Droid</string>
-    <string name="theme_night">Noapte</string>
     <string name="crash_dialog_title">F-Droid s-a oprit</string>
     <string name="theme_light">Luminoasă</string>
     <string name="theme_dark">Întunecată</string>
@@ -518,4 +517,9 @@
     <string name="menu_show_fdroid_metrics_report">Afișare raport de măsurători</string>
     <string name="toast_metrics_in_install_history">Raportul de măsurători %s poate fi vizualizat în istoricul de instalări</string>
     <string name="install_history_and_metrics">Istoric de instalări și măsurători</string>
+    <string name="theme_follow_system">Folosește tema sistemului</string>
+    <string name="use_pure_black_dark_theme_summary">Recomandat numai pentru ecrane OLED.</string>
+    <string name="use_pure_black_dark_theme">Utilizați un fundal negru pur în tema întunecată</string>
+    <string name="banner_no_data_or_wifi">Nu sunt activate date mobile sau Wi-Fi</string>
+    <string name="banner_no_internet">Fără internet</string>
 </resources>

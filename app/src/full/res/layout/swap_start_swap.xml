@@ -26,7 +26,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:contentDescription="@string/use_bluetooth"
-                android:src="@drawable/ic_bluetooth_searching"/>
+                swap:srcCompat="@drawable/ic_bluetooth_searching"/>
 
         <LinearLayout
                 android:layout_width="0dp"
@@ -53,7 +53,7 @@
 
         </LinearLayout>
 
-        <androidx.appcompat.widget.SwitchCompat
+        <com.google.android.material.switchmaterial.SwitchMaterial
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:enabled="false"
@@ -74,7 +74,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:contentDescription="@string/wifi"
-                android:src="@drawable/ic_wifi"/>
+                swap:srcCompat="@drawable/ic_wifi"/>
 
         <LinearLayout
                 android:layout_width="0dp"
@@ -110,7 +110,7 @@
 
         </LinearLayout>
 
-        <androidx.appcompat.widget.SwitchCompat
+        <com.google.android.material.switchmaterial.SwitchMaterial
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/switch_wifi"/>
@@ -155,7 +155,7 @@
 
         <Button
             android:id="@+id/btn_send_fdroid"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+            style="@style/Widget.App.Button.TextButton"
             android:layout_width="wrap_content"
             swap:icon="@drawable/ic_fdroid_grey"
             android:layout_height="wrap_content"
@@ -163,7 +163,7 @@
 
         <Button
             android:id="@+id/btn_scan_qr"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+            style="@style/Widget.App.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/swap_scan_qr"

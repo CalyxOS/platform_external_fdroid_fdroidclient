@@ -23,18 +23,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.NavUtils;
-import androidx.core.content.ContextCompat;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.fdroid.fdroid.FDroidApp;
 import org.fdroid.fdroid.NfcHelper;
@@ -45,11 +39,20 @@ import org.fdroid.fdroid.Utils;
 import org.fdroid.fdroid.data.Repo;
 import org.fdroid.fdroid.data.RepoProvider;
 import org.fdroid.fdroid.data.Schema.RepoTable;
-import org.fdroid.fdroid.qr.QrGenAsyncTask;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Locale;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NavUtils;
+import androidx.core.content.ContextCompat;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import io.reactivex.rxjava3.disposables.Disposable;
 
 public class RepoDetailsActivity extends AppCompatActivity {
     private static final String TAG = "RepoDetailsActivity";
@@ -89,6 +92,8 @@ public class RepoDetailsActivity extends AppCompatActivity {
 
     private MirrorAdapter adapterToNotify;
 
+    private Disposable disposable;
+
     /**
      * Help function to make switching between two view states easier.
      * Perhaps there is a better way to do this. I recall that using Adobe
@@ -103,13 +108,14 @@ public class RepoDetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        FDroidApp fdroidApp = (FDroidApp) getApplication();
+        fdroidApp.applyPureBlackBackgroundInDarkTheme(this);
 
-        ((FDroidApp) getApplication()).applyTheme(this);
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_repo_details);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -138,7 +144,19 @@ public class RepoDetailsActivity extends AppCompatActivity {
         Uri uri = Uri.parse(repo.address);
         uri = uri.buildUpon().appendQueryParameter("fingerprint", repo.fingerprint).build();
         String qrUriString = uri.toString();
-        new QrGenAsyncTask(this, R.id.qr_code).execute(qrUriString);
+        disposable = Utils.generateQrBitmap(this, qrUriString)
+                .subscribe(bitmap -> {
+                    final ImageView qrCode = findViewById(R.id.qr_code);
+                    if (qrCode != null) {
+                        qrCode.setImageBitmap(bitmap);
+                    }
+                });
+    }
+
+    @Override
+    protected void onDestroy() {
+        disposable.dispose();
+        super.onDestroy();
     }
 
     @TargetApi(14)
@@ -422,8 +440,10 @@ public class RepoDetailsActivity extends AppCompatActivity {
     public void showChangePasswordDialog(final View parentView) {
         final View view = getLayoutInflater().inflate(R.layout.login, null);
         final AlertDialog credentialsDialog = new AlertDialog.Builder(this).setView(view).create();
-        final EditText nameInput = view.findViewById(R.id.edit_name);
-        final EditText passwordInput = view.findViewById(R.id.edit_password);
+        final TextInputLayout nameInputLayout = view.findViewById(R.id.edit_name);
+        final TextInputLayout passwordInputLayout = view.findViewById(R.id.edit_password);
+        final EditText nameInput = nameInputLayout.getEditText();
+        final EditText passwordInput = passwordInputLayout.getEditText();
 
         nameInput.setText(repo.username);
         passwordInput.requestFocus();
