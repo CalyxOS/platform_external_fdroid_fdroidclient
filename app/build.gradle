@@ -24,7 +24,7 @@ android {
     compileSdkVersion 29
 
     defaultConfig {
-        versionCode 1013002
+        versionCode 1012051
         versionName getVersionName()
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
