@@ -33,6 +33,24 @@
       "message": "Pending upstream review and merge.\n\nOne thing we need to figure out here is.\n* If we don\u0027t bump version code, we can\u0027t release this as a separate update, but we can ship it with the OS update\n* Bumping version code would cause conflicts with upstream every single merge, but in some ways it\u0027s a necessity to be able to ship things.\n\nFor microG what we\u0027re doing is adding the commits on top of upstream tag to the version code - so this\u0027d end up being +2 or +3 or something which would ensure that it gets bumped every time, and also avoid conflicts since it would be a one-time change to build.gradle",
       "revId": "174313bc141620379b0035d1b8f0915c7f62fa1b",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e5ab450_dac1439d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-07-27T18:13:36Z",
+      "side": 1,
+      "message": "For microG this is how we\u0027re handling version code - 1633: Always include git commit count in version code | https://review.calyxos.org/c/CalyxOS/platform_external_microg_GmsCore/+/1633",
+      "parentUuid": "89bdfbe9_b969a26c",
+      "revId": "174313bc141620379b0035d1b8f0915c7f62fa1b",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
