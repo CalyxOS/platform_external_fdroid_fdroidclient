@@ -16,6 +16,24 @@
       "message": "Why is this asking me to review commits to the upstream fdroidclient git repo?",
       "revId": "ee4ea91edf211514f305a31999e816b1078fa21c",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09d5783b_cb043613",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-09T14:00:51Z",
+      "side": 1,
+      "message": "Since you\u0027re the author you got auto added when I pushed the commits.",
+      "parentUuid": "e5d5bf53_7adc9336",
+      "revId": "ee4ea91edf211514f305a31999e816b1078fa21c",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
