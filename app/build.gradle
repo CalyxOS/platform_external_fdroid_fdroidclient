@@ -12,6 +12,15 @@ def getVersionName = { ->
     return stdout.toString().trim()
 }
 
+def getGitCommitCount = { ->
+    def commitCount = 0
+    if (getVersionName().contains("-")) {
+        // example: 1.13.1-13-g5ee75c00cc - we want 13
+        commitCount = Integer.parseInt(getVersionName().split("-")[1])
+    }
+    return commitCount
+}
+
 def isCi = "true" == System.getenv("CI")
 def preDexEnabled = "true" == System.getProperty("pre-dex", "true")
 
@@ -63,6 +72,7 @@ android {
     flavorDimensions "base"
     productFlavors {
         full {
+            versionCode android.defaultConfig.versionCode + getGitCommitCount()
             dimension "base"
             applicationId fullApplicationId
             resValue "string", "applicationId", fullApplicationId
