@@ -197,6 +197,10 @@ This often occurs with apps installed via Google Play or other sources, if they 
     <string name="bad_fingerprint">Bad fingerprint</string>
     <string name="invalid_url">This is not a valid URL.</string>
     <string name="malformed_repo_uri">Ignoring malformed repo URI: %s</string>
+    <!-- Message presented in a dialog box when the device-wide management policy restricts adding new repos, e.g. "Unknown Sources". -->
+    <string name="has_disallow_install_unknown_sources_globally">Your device admin doesn\'t allow installing apps from unknown sources, that includes new repos</string>
+    <!-- Message presented in a dialog box when the user restriction set by the system restricts adding new repos, e.g. "Unknown Sources". -->
+    <string name="has_disallow_install_unknown_sources">Unknown sources can\'t be added by this user, that includes new repos</string>
     <string name="repo_provider">Repository: %s</string>
 
     <string name="menu_manage">Repositories</string>
@@ -478,6 +482,8 @@ This often occurs with apps installed via Google Play or other sources, if they 
         Please create a bug report!
     </string>
 
+    <string name="share_apk_error">Could not share app file</string>
+
     <string name="nearby_splash__download_apps_from_people_nearby">No Internet? Get apps from people near you!</string>
     <!-- The word "nearby" should be the same as used for Google/Android Nearby. This is a button label, it should ideally be 10-20 characters. -->
     <string name="nearby_splash__find_people_button">Find people nearby</string>
@@ -518,7 +524,7 @@ This often occurs with apps installed via Google Play or other sources, if they 
     <!-- This is a screen title, it should be maximum 25 characters -->
     <string name="swap_choose_apps">Choose Apps</string>
     <!-- This is a button label, it must be the right size, or the layout gets messed up. It should be less than 15 characters. -->
-    <string name="swap_scan_qr">Scan QR Code</string>
+    <string name="swap_scan_qr">QR Code</string>
     <string name="swap_people_nearby">People Nearby</string>
     <string name="swap_scanning_for_peers">Searching for nearby people…</string>
     <!-- This is a screen title, it should be maximum 25 characters -->
@@ -535,10 +541,12 @@ This often occurs with apps installed via Google Play or other sources, if they 
     <string name="swap_setting_up_wifi">Setting up Wi-Fi…</string>
     <string name="swap_stopping_wifi">Stopping Wi-Fi…</string>
     <string name="swap_not_visible_wifi">Not visible via Wi-Fi</string>
+    <string name="swap_wifi_vpn_conflict">Conflicts with active VPN!</string>
     <string name="swap_wifi_device_name">Device Name</string>
     <string name="swap_cant_find_peers">Can\'t find who you\'re looking for?</string>
     <!-- This is a button label, it must be the right size, or the layout gets messed up. It should be less than 15 characters. -->
     <string name="swap_send_fdroid">Send F-Droid</string>
+    <string name="apps">Apps</string>
     <string name="swap_no_peers_nearby">Could not find people nearby to swap with.</string>
     <!-- This is a screen title, it should be maximum 25 characters -->
     <string name="swap_connecting">Connecting</string>

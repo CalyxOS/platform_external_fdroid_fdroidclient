@@ -191,7 +191,7 @@
         unu navigadore.
     </string>
     <string name="swap_choose_apps">Issèbera aplicatziones</string>
-    <string name="swap_scan_qr">Iscansi còdighe QR</string>
+    <string name="swap_scan_qr">Còdighe QR</string>
     <string name="swap_people_nearby">Pessones a curtzu</string>
     <string name="swap_scanning_for_peers">Chirchende pro pessones a curtzu…</string>
     <string name="swap_nearby">Cumpartzidura a curtzu</string>
@@ -539,4 +539,5 @@
     <string name="use_pure_black_dark_theme">Imprea un\'isfundu nieddu de su totu in su tema iscuru</string>
     <string name="banner_no_data_or_wifi">Peruna connessione mòbile o Wifi ativa</string>
     <string name="banner_no_internet">Chene ìnternet</string>
+    <string name="share_apk_error">Cumpartzidura de su documentu de s\'aplicatzione fallida</string>
 </resources>

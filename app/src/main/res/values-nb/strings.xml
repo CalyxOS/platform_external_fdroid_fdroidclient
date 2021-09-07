@@ -172,7 +172,7 @@
         adresseopplysninger en nettleser.
     </string>
     <string name="swap_choose_apps">Velg programmer</string>
-    <string name="swap_scan_qr">Skann QR-kode</string>
+    <string name="swap_scan_qr">QR-kode</string>
     <string name="swap_people_nearby">Folk i nærheten</string>
     <string name="swap_scanning_for_peers">Søker etter folk i nærheten…</string>
     <string name="swap_visible_bluetooth">Synlig via Blåtann</string>
@@ -184,6 +184,7 @@
     <string name="swap_wifi_device_name">Enhetsnavn</string>
     <string name="swap_cant_find_peers">Finner du ikke den du leter etter?</string>
     <string name="swap_send_fdroid">Oversend F-Droid</string>
+    <string name="apps">Programmer</string>
     <string name="swap_connecting">Kobler til</string>
     <string name="loading">Laster inn …</string>
     <string name="install_confirm">tilgang til</string>
@@ -236,8 +237,8 @@
     <string name="swap_connection_misc_error">En feil inntraff under tilkobling til enheten, klarer ikke å sirkulere med
         den.
     </string>
-    <string name="install_confirm_update">Ønsker du å installere en oppdatering for denne eksisterende appen\? Du mister ingen eksisterende data. Den oppdaterte appen får tilgang til:</string>
-    <string name="install_confirm_update_system">Ønsker du å installere en oppdatering for denne innebygde appen\? Du mister ingen eksisterende data. Den oppdaterte appen får tilgang til:</string>
+    <string name="install_confirm_update">Ønsker du å installere en oppdatering for denne eksisterende appen? Du mister ingen eksisterende data. Den oppdaterte appen får tilgangen spesifisert nedenfor.</string>
+    <string name="install_confirm_update_system">Ønsker du å installere en oppdatering for denne innebygde appen? Du mister ingen eksisterende data. Den oppdaterte appen får tilgangen spesifisert nedenfor.</string>
     <string name="install_confirm_update_no_perms">Vil du installere en oppdatering av denne eksisterende appen? De eksisterende dataene dine går ikke tapt. Dette krever ingen spesiell tilgang.</string>
     <string name="install_confirm_update_system_no_perms">Vil du installere en oppdatering av denne innebygde appen? De eksisterende dataene dine går ikke tapt. Dette krever ingen spesiell tilgang.</string>
     <string name="login_name">Brukernavn</string>
