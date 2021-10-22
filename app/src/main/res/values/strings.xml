@@ -2,6 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <string name="app_name">F-Droid</string>
+    <string name="app_name_debug" translatable="false">F-Droid Debug</string>
 
     <string name="SignatureMismatch">The new version is signed with a different key to the old one. To install the new
         version, the old one must be uninstalled first. Please do this and try again. (Note that uninstalling will erase
@@ -46,9 +47,6 @@
         downloading, takes affect next app restart.</string>
     <string name="force_old_index">Force old index format</string>
     <string name="force_old_index_summary">In case there are bugs or compatibility issues, use the XML app index</string>
-    <string name="allow_push_requests">Allow repos to install/uninstall apps</string>
-    <string name="allow_push_requests_summary">Repo metadata can include "push requests" to install or uninstall apps
-    </string>
     <string name="other">Other</string>
 
     <string name="update_interval">Automatic update interval</string>
@@ -128,6 +126,7 @@ This often occurs with apps installed via Google Play or other sources, if they 
     <string name="app_repository">Repository: %1$s</string>
     <string name="app_size">Size: %1$s</string>
 
+    <string name="app_list_results_hidden_antifeature_settings">Some results were hidden based on your antifeature settings.</string>
     <string name="app_list__name__downloading_in_progress">Downloading %1$s</string>
     <string name="app_list__name__successfully_installed">%1$s installed</string>
     <string name="app_list_download_ready">Downloaded, ready to install</string>
@@ -280,7 +279,27 @@ This often occurs with apps installed via Google Play or other sources, if they 
     <string name="details_new_in_version">New in version %s</string>
 
     <string name="antifeatureswarning">This app has features you may not like.</string>
+    <string name="antiads_key" translatable="false">Ads</string>
+    <string name="antitrack_key" translatable="false">Tracking</string>
+    <string name="antinonfreenet_key" translatable="false">NonFreeNet</string>
+    <string name="antinonfreead_key" translatable="false">NonFreeAdd</string>
+    <string name="antinonfreedep_key" translatable="false">NonFreeDep</string>
+    <string name="antiupstreamnonfree_key" translatable="false">UpstreamNonFree</string>
+    <string name="antinonfreeassets_key" translatable="false">NonFreeAssets</string>
+    <string name="antidisabledalgorithm_key" translatable="false">DisabledAlgorithm</string>
+    <string name="antiknownvuln_key" translatable="false">KnownVuln</string>
+    <string name="antinosource_key" translatable="false">NoSourceSince</string>
     <string name="antifeatures">Anti-features</string>
+    <string name="antiads">Ads</string>
+    <string name="antitrack">Tracking</string>
+    <string name="antinonfreead">Non-Free Addons</string>
+    <string name="antinonfreenet">Non-Free Network Services</string>
+    <string name="antinonfreedep">Non-Free Dependencies</string>
+    <string name="antiupstreamnonfree">Upstream Non-Free</string>
+    <string name="antinonfreeassets">Non-Free Assets</string>
+    <string name="antidisabledalgorithm">Signed Using An Unsafe Algorithm</string>
+    <string name="antiknownvuln">Known Vulnerability</string>
+    <string name="antinosource">Source Code No Longer Available</string>
     <string name="antiadslist">This app contains advertising</string>
     <string name="antitracklist">This app tracks and reports your activity</string>
     <string name="antinonfreeadlist">This app promotes non-free add-ons</string>
