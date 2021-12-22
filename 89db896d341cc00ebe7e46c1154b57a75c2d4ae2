@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bbec37c_8d99f3d9",
+        "filename": "app/src/main/res/values/config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-12-22T23:38:07Z",
+      "side": 1,
+      "message": "4 spaces",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 1
+      },
+      "revId": "89db896d341cc00ebe7e46c1154b57a75c2d4ae2",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b006672_d37fab19",
+        "filename": "app/src/main/res/values/config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-12-22T23:38:07Z",
+      "side": 1,
+      "message": "Fixup",
+      "revId": "89db896d341cc00ebe7e46c1154b57a75c2d4ae2",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
