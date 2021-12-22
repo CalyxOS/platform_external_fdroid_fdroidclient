@@ -24,6 +24,30 @@
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e393111b_63fb68c4",
+        "filename": "app/src/main/res/values/config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-22T23:39:09Z",
+      "side": 1,
+      "message": "Upstream commit, merged already, will fix upstream and get it in next pull.",
+      "parentUuid": "5bbec37c_8d99f3d9",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 1
+      },
+      "revId": "89db896d341cc00ebe7e46c1154b57a75c2d4ae2",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b006672_d37fab19",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-12-22T23:38:07Z",
       "side": 1,
       "message": "Fixup",
+      "revId": "89db896d341cc00ebe7e46c1154b57a75c2d4ae2",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9355d4b3_a6ccba39",
+        "filename": "app/src/main/res/values/config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-22T23:39:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2b006672_d37fab19",
       "revId": "89db896d341cc00ebe7e46c1154b57a75c2d4ae2",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
