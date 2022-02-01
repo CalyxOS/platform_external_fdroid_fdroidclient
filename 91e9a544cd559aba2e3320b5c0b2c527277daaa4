@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bb62d93_019ee567",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-01T16:18:40Z",
+      "side": 1,
+      "message": "This conflict \"resolved\" manually.\n\nOthers simply checked out from upstream as we don\u0027t touch those.",
+      "revId": "91e9a544cd559aba2e3320b5c0b2c527277daaa4",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f690e03_78c54ad8",
+        "filename": "app/build.gradle",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-01T16:18:40Z",
+      "side": 1,
+      "message": "Bumped this here so we have a version code change.\n\nWe should be back in sync with upstream with 1.15",
+      "revId": "91e9a544cd559aba2e3320b5c0b2c527277daaa4",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
