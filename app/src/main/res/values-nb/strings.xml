@@ -172,7 +172,7 @@
         adresseopplysninger en nettleser.
     </string>
     <string name="swap_choose_apps">Velg programmer</string>
-    <string name="swap_scan_qr">Skann QR-kode</string>
+    <string name="swap_scan_qr">QR-kode</string>
     <string name="swap_people_nearby">Folk i nærheten</string>
     <string name="swap_scanning_for_peers">Søker etter folk i nærheten…</string>
     <string name="swap_visible_bluetooth">Synlig via Blåtann</string>
@@ -184,6 +184,7 @@
     <string name="swap_wifi_device_name">Enhetsnavn</string>
     <string name="swap_cant_find_peers">Finner du ikke den du leter etter?</string>
     <string name="swap_send_fdroid">Oversend F-Droid</string>
+    <string name="apps">Programmer</string>
     <string name="swap_connecting">Kobler til</string>
     <string name="loading">Laster inn …</string>
     <string name="install_confirm">tilgang til</string>
@@ -236,8 +237,8 @@
     <string name="swap_connection_misc_error">En feil inntraff under tilkobling til enheten, klarer ikke å sirkulere med
         den.
     </string>
-    <string name="install_confirm_update">Ønsker du å installere en oppdatering for denne eksisterende appen\? Du mister ingen eksisterende data. Den oppdaterte appen får tilgang til:</string>
-    <string name="install_confirm_update_system">Ønsker du å installere en oppdatering for denne innebygde appen\? Du mister ingen eksisterende data. Den oppdaterte appen får tilgang til:</string>
+    <string name="install_confirm_update">Ønsker du å installere en oppdatering for denne eksisterende appen? Du mister ingen eksisterende data. Den oppdaterte appen får tilgangen spesifisert nedenfor.</string>
+    <string name="install_confirm_update_system">Ønsker du å installere en oppdatering for denne innebygde appen? Du mister ingen eksisterende data. Den oppdaterte appen får tilgangen spesifisert nedenfor.</string>
     <string name="install_confirm_update_no_perms">Vil du installere en oppdatering av denne eksisterende appen? De eksisterende dataene dine går ikke tapt. Dette krever ingen spesiell tilgang.</string>
     <string name="install_confirm_update_system_no_perms">Vil du installere en oppdatering av denne innebygde appen? De eksisterende dataene dine går ikke tapt. Dette krever ingen spesiell tilgang.</string>
     <string name="login_name">Brukernavn</string>
@@ -459,8 +460,6 @@
     <string name="share_repository">Del pakkebrønn</string>
     <string name="send_install_history">Send installasjonshistorikk</string>
     <string name="send_history_csv">%s installasjonshistorikk som CSV-fil</string>
-    <string name="allow_push_requests">Tillat pakkebrønner å installere/avinstallere programmer</string>
-    <string name="allow_push_requests_summary">Pakkebrønnsmetadata kan inneholde push-forespørsler om installasjon eller avinstallasjon av programmer</string>
     <string name="antinosourcesince">Kildekoden er ikke lenger tilgjengelig, ingen oppdateringer mulig.</string>
     <string name="updates_disabled_by_settings">Alle oppdateringer avskrudd av Data/Wi-Fi-innstillinger</string>
     <string name="send_installed_apps">Del installerte programmer</string>
@@ -524,4 +523,20 @@
     <string name="use_pure_black_dark_theme">Bruk ren svart bakgrunn i mørkt tema</string>
     <string name="banner_no_data_or_wifi">Ingen data eller WiFi aktivert</string>
     <string name="banner_no_internet">Ingen Internett</string>
+    <string name="swap_wifi_vpn_conflict">I konflikt med aktiv VPN.</string>
+    <string name="share_apk_error">Kunne ikke dele programfil</string>
+    <string name="has_disallow_install_unknown_sources_globally">Din enhetsadministrator tillater ikke installasjon av programmer fra ukjente kilder. Dette gjelder også nye pakkebrønner.</string>
+    <string name="has_disallow_install_unknown_sources">Ukjente kilder kan ikke legges til av denne brukeren. Dette gjelder også nye pakkebrønner.</string>
+    <string name="antiads">Reklame</string>
+    <string name="antinonfreeassets">Ufrie gjenstander</string>
+    <string name="antinonfreedep">Ufrie avhengigheter</string>
+    <string name="antitrack">Sporing</string>
+    <string name="app_list_results_hidden_antifeature_settings">Noen resultater ble utelatt som følge av dine antifunksjonsinnstillinger.</string>
+    <string name="antiupstreamnonfree">Kildekoden oppstrøms er ikke helt fri</string>
+    <string name="antinonfreead">Ufrie tillegg</string>
+    <string name="antiothers">Andre antifunksjoner</string>
+    <string name="antinonfreenet">Ufrie nettverkstjenester</string>
+    <string name="antidisabledalgorithm">Signert med en utrygg algoritme</string>
+    <string name="antiknownvuln">Kjent sårbarhet</string>
+    <string name="antinosource">Kilden er ikke lenger tilgjengelig</string>
 </resources>

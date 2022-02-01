@@ -1,3 +1,61 @@
+### 1.14 (2022-01-24)
+
+* Install Osmand map files without requiring Osmand have Storage permission.
+
+* Fix crash in cache cleanup when disk space is running low.
+
+* Fix UI coloring in Panic settings.
+
+### 1.14-alpha5 (2022-01-19)
+
+* Fix missing back button on Panic and Manage Repos Settings (@splitowo)
+
+* Fix Nearby crash on Android 12
+
+* Handle API 31 split-permissions
+
+* Fix navigation in Basic flavor (@raphaelm)
+
+* Add support for other barcode scanners (@Lugerun)
+
+### 1.14-alpha4 (2021-12-09)
+
+* Hide unwanted antifeatures from latest and categories
+
+* Allow custom Anti-Features from repos to be unhidden
+
+### 1.14-alpha3 (2021-10-22)
+
+* Remove "Allow Push Requests" expert setting, replace with compile-time configuration
+
+* Allow choosing which antifeatures to show
+
+### 1.14-alpha2 (2021-09-10)
+
+* Improved icon management with limited Data/WiFi settings
+
+* Sharing an app URL now uses the correct repo (#1946)
+
+* Nearby swap fixes
+
+### 1.14-alpha1 (2021-09-03)
+
+* Improved Nearby workflow and navigation, with lots of bug fixes.
+
+* Apps without PNG app icons now show in Latest Tab (@ashutoshgngwr)
+
+### 1.14-alpha0 (2021-08-27)
+
+* Overhaul Share menu to use built-in options like Nearby.
+
+* Material design improvements (@proletarius101)
+
+* Improve offline, nearby sharing
+
+* Block adding new repos when device admin disallows "Unknown Sources"
+
+* Fix crash when using repos with username/password
+
 ### 1.13.1 (2021-08-05)
 
 * Better tested fix for repeated updates of Trichrome library.

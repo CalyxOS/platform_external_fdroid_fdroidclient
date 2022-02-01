@@ -2,6 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <string name="app_name">F-Droid</string>
+    <string name="app_name_debug" translatable="false">F-Droid Debug</string>
 
     <string name="SignatureMismatch">The new version is signed with a different key to the old one. To install the new
         version, the old one must be uninstalled first. Please do this and try again. (Note that uninstalling will erase
@@ -125,6 +126,7 @@ This often occurs with apps installed via Google Play or other sources, if they 
     <string name="app_repository">Repository: %1$s</string>
     <string name="app_size">Size: %1$s</string>
 
+    <string name="app_list_results_hidden_antifeature_settings">Some results were hidden based on your antifeature settings.</string>
     <string name="app_list__name__downloading_in_progress">Downloading %1$s</string>
     <string name="app_list__name__successfully_installed">%1$s installed</string>
     <string name="app_list_download_ready">Downloaded, ready to install</string>
@@ -194,6 +196,10 @@ This often occurs with apps installed via Google Play or other sources, if they 
     <string name="bad_fingerprint">Bad fingerprint</string>
     <string name="invalid_url">This is not a valid URL.</string>
     <string name="malformed_repo_uri">Ignoring malformed repo URI: %s</string>
+    <!-- Message presented in a dialog box when the device-wide management policy restricts adding new repos, e.g. "Unknown Sources". -->
+    <string name="has_disallow_install_unknown_sources_globally">Your device admin doesn\'t allow installing apps from unknown sources, that includes new repos</string>
+    <!-- Message presented in a dialog box when the user restriction set by the system restricts adding new repos, e.g. "Unknown Sources". -->
+    <string name="has_disallow_install_unknown_sources">Unknown sources can\'t be added by this user, that includes new repos</string>
     <string name="repo_provider">Repository: %s</string>
 
     <string name="menu_manage">Repositories</string>
@@ -273,7 +279,29 @@ This often occurs with apps installed via Google Play or other sources, if they 
     <string name="details_new_in_version">New in version %s</string>
 
     <string name="antifeatureswarning">This app has features you may not like.</string>
+    <string name="antiads_key" translatable="false">Ads</string>
+    <string name="antitrack_key" translatable="false">Tracking</string>
+    <string name="antinonfreenet_key" translatable="false">NonFreeNet</string>
+    <string name="antinonfreead_key" translatable="false">NonFreeAdd</string>
+    <string name="antinonfreedep_key" translatable="false">NonFreeDep</string>
+    <string name="antiupstreamnonfree_key" translatable="false">UpstreamNonFree</string>
+    <string name="antinonfreeassets_key" translatable="false">NonFreeAssets</string>
+    <string name="antidisabledalgorithm_key" translatable="false">DisabledAlgorithm</string>
+    <string name="antiknownvuln_key" translatable="false">KnownVuln</string>
+    <string name="antinosource_key" translatable="false">NoSourceSince</string>
+    <string name="antiothers_key" translatable="false">_anti_others_</string>
     <string name="antifeatures">Anti-features</string>
+    <string name="antiads">Ads</string>
+    <string name="antitrack">Tracking</string>
+    <string name="antinonfreead">Non-Free Addons</string>
+    <string name="antinonfreenet">Non-Free Network Services</string>
+    <string name="antinonfreedep">Non-Free Dependencies</string>
+    <string name="antiupstreamnonfree">Upstream Non-Free</string>
+    <string name="antinonfreeassets">Non-Free Assets</string>
+    <string name="antidisabledalgorithm">Signed Using An Unsafe Algorithm</string>
+    <string name="antiknownvuln">Known Vulnerability</string>
+    <string name="antinosource">Source Code No Longer Available</string>
+    <string name="antiothers">Other Anti-features</string>
     <string name="antiadslist">This app contains advertising</string>
     <string name="antitracklist">This app tracks and reports your activity</string>
     <string name="antinonfreeadlist">This app promotes non-free add-ons</string>
@@ -284,7 +312,6 @@ This often occurs with apps installed via Google Play or other sources, if they 
     <string name="antidisabledalgorithmlist">This app has a weak security signature</string>
     <string name="antiknownvulnlist">This app contains a known security vulnerability</string>
     <string name="antinosourcesince">The source code is no longer available, no updates possible.</string>
-
     <string name="display">Display</string>
 
     <string name="expert">Expert mode</string>
@@ -475,6 +502,8 @@ This often occurs with apps installed via Google Play or other sources, if they 
         Please create a bug report!
     </string>
 
+    <string name="share_apk_error">Could not share app file</string>
+
     <string name="nearby_splash__download_apps_from_people_nearby">No Internet? Get apps from people near you!</string>
     <!-- The word "nearby" should be the same as used for Google/Android Nearby. This is a button label, it should ideally be 10-20 characters. -->
     <string name="nearby_splash__find_people_button">Find people nearby</string>
@@ -515,7 +544,7 @@ This often occurs with apps installed via Google Play or other sources, if they 
     <!-- This is a screen title, it should be maximum 25 characters -->
     <string name="swap_choose_apps">Choose Apps</string>
     <!-- This is a button label, it must be the right size, or the layout gets messed up. It should be less than 15 characters. -->
-    <string name="swap_scan_qr">Scan QR Code</string>
+    <string name="swap_scan_qr">QR Code</string>
     <string name="swap_people_nearby">People Nearby</string>
     <string name="swap_scanning_for_peers">Searching for nearby people…</string>
     <!-- This is a screen title, it should be maximum 25 characters -->
@@ -532,10 +561,12 @@ This often occurs with apps installed via Google Play or other sources, if they 
     <string name="swap_setting_up_wifi">Setting up Wi-Fi…</string>
     <string name="swap_stopping_wifi">Stopping Wi-Fi…</string>
     <string name="swap_not_visible_wifi">Not visible via Wi-Fi</string>
+    <string name="swap_wifi_vpn_conflict">Conflicts with active VPN!</string>
     <string name="swap_wifi_device_name">Device Name</string>
     <string name="swap_cant_find_peers">Can\'t find who you\'re looking for?</string>
     <!-- This is a button label, it must be the right size, or the layout gets messed up. It should be less than 15 characters. -->
     <string name="swap_send_fdroid">Send F-Droid</string>
+    <string name="apps">Apps</string>
     <string name="swap_no_peers_nearby">Could not find people nearby to swap with.</string>
     <!-- This is a screen title, it should be maximum 25 characters -->
     <string name="swap_connecting">Connecting</string>

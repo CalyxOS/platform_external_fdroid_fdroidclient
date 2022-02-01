@@ -149,7 +149,7 @@
     <string name="swap_nearby">Ойролцоох солилцоо</string>
     <string name="swap_scanning_for_peers">Ойролцоох хүмүүсийг хайж байна …</string>
     <string name="swap_people_nearby">Ойролцоох хүмүүс</string>
-    <string name="swap_scan_qr">QRкодыг сканнердах</string>
+    <string name="swap_scan_qr">QRкодыг</string>
     <string name="swap_choose_apps">Апп-г сонгоно уу</string>
     <string name="swap_scan_or_type_url">Нэг хүн кодыг сканнердах эсвэл нөгөөгийнхөө URL-г хөтөч дээр бичих шаардлагатай.</string>
     <string name="swap_confirm_connect">Та одоо %1$s-с програм авахыг хүсч байна уу\?</string>
@@ -417,8 +417,6 @@
     <string name="over_data">Өгөгдлөөр</string>
     <string name="over_wifi">Wi-Fi ашиглан</string>
     <string name="update_interval">Автоматаар шинэчлэх интервал</string>
-    <string name="allow_push_requests_summary">Репо мета өгөгдөлд програм суулгах эсвэл устгах түлхэх хүсэлтийг багтааж болно</string>
-    <string name="allow_push_requests">Аппуудыг суулгах / устгахыг репост зөвшөөрөх</string>
     <string name="force_old_index_summary">Алдаа, нийцтэй байдлын асуудал гарсан тохиолдолд XML програмын индексийг ашиглана уу</string>
     <string name="force_old_index">Хуучин индекс форматыг албадах</string>
     <string name="send_version_and_uuid_summary">Татаж авахдаа энэ програмын хувилбар болон санамсаргүй, өвөрмөц ID-г оруулаарай. Дараачийн аппликешныг дахин эхлүүлэхэд хүчин төгөлдөр болно.</string>
@@ -463,7 +461,7 @@
     <string name="about_title">F-Droid-ийн тухай</string>
     <string name="app_details">Аппын дэлгэрэнгүй</string>
     <string name="notification_action_install">Суулгах</string>
-    <string name="notification_action_cancel">Цуцлах</string>
+    <string name="notification_action_cancel">Болих</string>
     <string name="notification_action_update">Шинэчлэх</string>
     <string name="swap_dont_show_again">Үүнийг дахиж битгий харуул</string>
     <string name="swap_welcome">F-Droid-д тавтай морилно уу!</string>
@@ -497,4 +495,5 @@
     <string name="menu_manage">Агуулах</string>
     <string name="back">Буцах</string>
     <string name="updates">Шинэчлэлтүүд</string>
+    <string name="apps">Апп</string>
 </resources>

@@ -38,6 +38,9 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestManager;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import org.fdroid.fdroid.FDroidApp;
@@ -76,7 +79,7 @@ public class PreferencesFragment extends PreferenceFragmentCompat
             Preferences.PREF_OVER_DATA,
             Preferences.PREF_UPDATE_INTERVAL,
             Preferences.PREF_UPDATE_NOTIFICATION_ENABLED,
-            Preferences.PREF_SHOW_ANTI_FEATURE_APPS,
+            Preferences.PREF_SHOW_ANTI_FEATURES,
             Preferences.PREF_SHOW_INCOMPAT_VERSIONS,
             Preferences.PREF_THEME,
             Preferences.PREF_USE_PURE_BLACK_DARK_THEME,
@@ -119,6 +122,8 @@ public class PreferencesFragment extends PreferenceFragmentCompat
     private int updateIntervalPrevious;
 
     private LinearSmoothScroller topScroller;
+
+    private RequestManager glideRequestManager;
 
     @Override
     public void onCreatePreferences(Bundle bundle, String s) {
@@ -301,7 +306,7 @@ public class PreferencesFragment extends PreferenceFragmentCompat
                 checkSummary(key, R.string.show_incompat_versions_on);
                 break;
 
-            case Preferences.PREF_SHOW_ANTI_FEATURE_APPS:
+            case Preferences.PREF_SHOW_ANTI_FEATURES:
                 checkSummary(key, R.string.show_anti_feature_apps_on);
                 break;
 
@@ -608,6 +613,12 @@ public class PreferencesFragment extends PreferenceFragmentCompat
             } else {
                 installHistoryPref.setTitle(R.string.install_history);
             }
+        } else if (Preferences.PREF_OVER_DATA.equals(key) || Preferences.PREF_OVER_WIFI.equals(key)) {
+            if (glideRequestManager == null) {
+                glideRequestManager = Glide.with(getContext());
+            }
+            glideRequestManager.applyDefaultRequestOptions(new RequestOptions()
+                    .onlyRetrieveFromCache(Preferences.get().isBackgroundDownloadAllowed()));
         }
     }
 }

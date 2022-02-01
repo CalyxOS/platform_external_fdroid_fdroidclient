@@ -147,7 +147,7 @@
     <string name="swap_confirm_connect">Desexas obter aplicacións dende %1$s agora\?</string>
     <string name="swap_dont_show_again">Non amosar de novo</string>
     <string name="swap_choose_apps">Escoller as aplicacións</string>
-    <string name="swap_scan_qr">Escanear código QR</string>
+    <string name="swap_scan_qr">Código QR</string>
     <string name="swap_visible_bluetooth">Visíbel por Bluetooth</string>
     <string name="swap_setting_up_bluetooth">Estase a configurar o Bluetooth…</string>
     <string name="swap_visible_wifi">Visíbel por Wi-Fi</string>
@@ -221,10 +221,10 @@
     <string name="swap_qr_isnt_for_swap">O código QR que escaneaches non semella corresponder a un código de intercambio.</string>
     <string name="swap_connection_misc_error">Ocorreu un erro durante a conexión co dispositivo, non se pode facer o intercambio!</string>
     <string name="install_confirm">require acceso a</string>
-    <string name="install_confirm_update">¿Quere instalar unha actualización para esta aplicación existente\? Non se perderán os teus datos existentes. A aplicación actualizada terá acceso a:</string>
-    <string name="install_confirm_update_system">Desexas instalar unha actualización para esta aplicación do sistema\? Os teus datos existentes non se perderán. A actualización require acceso a:</string>
-    <string name="install_confirm_update_no_perms">¿Quere instalar unha actualización para esta aplicación existente\? Non se perderán os teus datos existentes. Non precisa acceso especial.</string>
-    <string name="install_confirm_update_system_no_perms">¿Quere instalar unha actualización para esta aplicación incorporada\? Non se perderán os teus datos existentes. Non precisa acceso especial.</string>
+    <string name="install_confirm_update">Queres instalar unha actualización para esta aplicación? Non se perderán os teus datos existentes. A aplicación actualizada disporá de acceso a:</string>
+    <string name="install_confirm_update_system">Queres instalar unha actualización para esta aplicación integrada?  Non se perderán os teus datos existentes. A aplicación actualizada disporá de acceso a:</string>
+    <string name="install_confirm_update_no_perms">Queres instalar unha actualización para esta aplicación? Non se perderán os teus datos existentes. Non require ningún acceso especial.</string>
+    <string name="install_confirm_update_system_no_perms">Queres instalar unha actualización para esta aplicación integrada? Non se perderán os teus datos existentes. Non require ningún acceso especial.</string>
     <string name="download_error">A baixada fallou!</string>
     <string name="perms_description_app">Fornecido por %1$s.</string>
     <string name="writing_index_jar">Estase a escribir o índice firmado para o ficheiro (index.jar)…</string>
@@ -234,7 +234,7 @@
     <string name="main_menu__swap_nearby">Preto</string>
     <string name="preference_manage_installed_apps">Xestionar aplicacións instaladas</string>
     <string name="notification_action_update">Actualizar</string>
-    <string name="notification_action_cancel">Desbotar</string>
+    <string name="notification_action_cancel">Cancelar</string>
     <string name="notification_action_install">Instalar</string>
     <string name="app_list__name__downloading_in_progress">Estase a baixar %1$s</string>
     <string name="app_list__name__successfully_installed">%1$s foi instalada</string>
@@ -445,8 +445,6 @@
     <string name="install_history_summary">Ollar o rexistro privado de tódalas instalacións e desinstalacións</string>
     <string name="send_version_and_uuid">Enviar versión e UUID para os servidores</string>
     <string name="send_version_and_uuid_summary">Enviar a versión da aplicación e un ID xerado ó chou ó baixar. Ten efeito após reiniciar a aplicación.</string>
-    <string name="allow_push_requests">Permitir ós repositorios instalar e desinstalar aplicacións</string>
-    <string name="allow_push_requests_summary">Os metadados do repositorio poden incluír pedidos push para instalar ou desinstalar aplicacións</string>
     <string name="scan_removable_storage_title">Analizar almacenamento extraíbel</string>
     <string name="scan_removable_storage_toast">Estase a analizar %s…</string>
     <string name="scan_removable_storage_summary">Procura repositorios de paquetes en almacenamento extraíbel coma tarxetas SD e chaves de memoria USB</string>
@@ -509,4 +507,11 @@
     <string name="install_history_and_metrics">Instalar historial e métricas</string>
     <string name="send_fdroid_metrics_json">Informe de métricas %s como ficheiro JSON</string>
     <string name="send_fdroid_metrics_report">Enviar informe de métricas %s</string>
+    <string name="apps">Aplicacións</string>
+    <string name="antiads">Anuncios</string>
+    <string name="antiknownvuln">Vulnerabilidade Coñecida</string>
+    <string name="has_disallow_install_unknown_sources">Este usuario non pode engadir fontes descoñecidas, o que inclúe novos repositorios</string>
+    <string name="has_disallow_install_unknown_sources_globally">O administrador do dispositivo non permita instalar aplicacións de fontes descoñecidas, o que inclúe novos repositorios</string>
+    <string name="antidisabledalgorithm">Asinado usando un algoritmo inseguro</string>
+    <string name="antitrack">Seguimento</string>
 </resources>

@@ -206,7 +206,7 @@
         nabigatzailean sartu.
     </string>
     <string name="swap_choose_apps">Hautatu aplikazioak</string>
-    <string name="swap_scan_qr">Eskaneatu QR kodea</string>
+    <string name="swap_scan_qr">QR kodea</string>
     <string name="swap_people_nearby">Inguruko jendea</string>
     <string name="swap_scanning_for_peers">Inguruko jendearen bila…</string>
     <string name="swap_nearby">Ingurukoekin partekatu</string>
@@ -219,6 +219,7 @@
     <string name="swap_not_visible_wifi">Wi-Fi bidez ez ikusgai</string>
     <string name="swap_cant_find_peers">Ezin duzu bilatzen ari zarena aurkitu?</string>
     <string name="swap_send_fdroid">Bidali F-Droid</string>
+    <string name="apps">Aplikazioak</string>
     <string name="swap_no_peers_nearby">Ezin izan da inguruan partekatzeko jenderik aurkitu.</string>
     <string name="swap_confirm">Berretsi trukea</string>
     <string name="swap_nfc_title">Ukitu partekatzeko</string>
@@ -433,7 +434,7 @@
     <string name="sort_search">Ordenatu bilaketa</string>
     <string name="menu_liberapay">Liberapay</string>
     <string name="warning_scaning_qr_code">Zure kamerak ez du fokatze automatikorako gaitasunik. Kodea eskaneatzea zaila izan daiteke.</string>
-    <string name="show_anti_feature_apps">Sartu ezaugarri zalantzagarriak dituzten aplikazioak</string>
+    <string name="show_anti_feature_apps">Sartu ezaugarri zalantzagarridun aplikazioak</string>
     <string name="show_anti_feature_apps_on">Erakutsi ezaugarri zalantzagarriak behar dituzten aplikazioak</string>
     <string name="force_touch_apps">Sartu ukimen pantaila darabilten aplikazioak</string>
     <string name="force_touch_apps_on">Erakutsi ukimen pantaila behar duten aplikazioak, hardware euskarria dena dela</string>
@@ -468,8 +469,6 @@
     <string name="antinosourcesince">Iturburu kodea ez dago jada eskuragarri, ezin izango da eguneratu.</string>
     <string name="send_install_history">Bidali instalazioen historiala</string>
     <string name="send_history_csv">%s instalazioen historiala CSV fitxategi gisa</string>
-    <string name="allow_push_requests">Baimendu biltegiei aplikazioak instalatzea/desinstalatzea</string>
-    <string name="allow_push_requests_summary">Biltegien metadatuek aplikazioak instalatzeko edo desinstalatzeko push eskariak izan ditzakete</string>
     <string name="updates_disabled_by_settings">Eguneraketa guztiak desgaituta datu/WiFi ezarpenetan</string>
     <string name="send_installed_apps">Partekatu instalatutako aplikazioak</string>
     <string name="send_installed_apps_csv">F-Droid-ek instalatutako aplikazioak CSV fitxategi gisa</string>
@@ -531,4 +530,21 @@
     <string name="banner_no_data_or_wifi">Datuak eta WiFi-a itzalita</string>
     <string name="banner_no_internet">Internet gabe</string>
     <string name="menu_show_install_history">Instalazio historia erakutsi</string>
+    <string name="send_to_fdroid_metrics_summary">Astero informazio anonimoa F-Droid Metrics-era bidali (\"Mantendu instalazioen historiala\" behar du)</string>
+    <string name="swap_wifi_vpn_conflict">Uneko VPNarekin gatazka sortzen du!</string>
+    <string name="share_apk_error">Ezin izan da aplikazio fitxategia partekatu</string>
+    <string name="has_disallow_install_unknown_sources_globally">Zure gailuaren administratzaileak ez du jatorri ezezaguneko aplikazioak instalatzen uzten, biltegi berriak barne</string>
+    <string name="has_disallow_install_unknown_sources">Erabiltzaile honek ezin ditu jatorri ezezagunak gehitu, biltegi berriak barne</string>
+    <string name="app_list_results_hidden_antifeature_settings">Emaitza batzuk ezkutatu egin dira euren ezaugarri gorabeheratsuak direla medio.</string>
+    <string name="antiads">Iragarkiak</string>
+    <string name="antitrack">Arrastoaren jarraipena</string>
+    <string name="antinonfreead">Libreak ez diren gehigarriak</string>
+    <string name="antinonfreenet">Libreak ez diren sareko zerbitzuak</string>
+    <string name="antinonfreedep">Libreak ez diren menpekotasunak</string>
+    <string name="antiupstreamnonfree">Librea ez den iturburua</string>
+    <string name="antinonfreeassets">Libreak ez diren aktiboak</string>
+    <string name="antidisabledalgorithm">Segurua ez den algoritmo batez sinatua</string>
+    <string name="antiknownvuln">Ahultasun ezaguna</string>
+    <string name="antinosource">Jatorrizko kodea ez dago erabilgarri</string>
+    <string name="antiothers">Beste anti-ezaugarriak</string>
 </resources>

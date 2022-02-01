@@ -12,7 +12,7 @@
     <string name="unstable_updates_summary">Predloži ažuriranja za nestabilne verzije</string>
     <string name="other">Ostalo</string>
     <string name="main_menu__categories">Kategorije</string>
-    <string name="main_menu__swap_nearby">Obližnji</string>
+    <string name="main_menu__swap_nearby">U blizini</string>
     <string name="update_interval">Interval automatskog ažuriranja</string>
     <string name="update_auto_download">Automatski dohvati ažuriranja</string>
     <string name="update_auto_download_summary">Ažuriranja su preuzeta automatski i dobit ćete obavijest, da se mogu instalirati</string>
@@ -64,7 +64,7 @@
     <string name="repo_provider">Repozitorij: %s</string>
     <string name="menu_manage">Repozitoriji</string>
     <string name="menu_settings">Postavke</string>
-    <string name="menu_search">Traži</string>
+    <string name="menu_search">Pretraži</string>
     <string name="menu_add_repo">Novi repozitorij</string>
     <string name="menu_launch">Otvori</string>
     <string name="menu_share">Dijeli</string>
@@ -214,7 +214,7 @@
         preglednik.
     </string>
     <string name="swap_choose_apps">Odaberi aplikacije</string>
-    <string name="swap_scan_qr">Skeniraj QR kod</string>
+    <string name="swap_scan_qr">QR kod</string>
     <string name="swap_people_nearby">Ljudi u blizini</string>
     <string name="swap_scanning_for_peers">Tražim ljude u blizini…</string>
     <string name="swap_nearby">Obližnja razmjena</string>
@@ -229,7 +229,8 @@
     <string name="swap_wifi_device_name">Ime uređja</string>
     <string name="swap_cant_find_peers">Ne možete naći koga tražite?</string>
     <string name="swap_send_fdroid">Pošalji F-Droid</string>
-    <string name="swap_no_peers_nearby">Nije uspjelo traženje ljudi u blizini.</string>
+    <string name="apps">Aplikacije</string>
+    <string name="swap_no_peers_nearby">Nisu pronađeni ljudi u blizini za razmjenu.</string>
     <string name="swap_connecting">Povezivanje</string>
     <string name="swap_confirm">Potvrdi razmjenu</string>
     <string name="swap_qr_isnt_for_swap">Čini se da QR kod koji ste skenirali nije kod za razmjenu.</string>
@@ -279,7 +280,7 @@
     <string name="main_menu__latest_apps">Najnovije</string>
     <string name="preference_manage_installed_apps">Upravljaj instaliranim aplikacijama</string>
     <string name="notification_action_update">Ažuriraj</string>
-    <string name="notification_action_cancel">Odustani</string>
+    <string name="notification_action_cancel">Otkaži</string>
     <string name="notification_action_install">Instaliraj</string>
     <string name="app_list__name__downloading_in_progress">Preuzimanje %1$s</string>
     <string name="app_list__name__successfully_installed">%1$s instaliran</string>
@@ -327,9 +328,9 @@
     <string name="hiding_dialog_title">Sakrij %s sada</string>
     <string name="hide_on_long_search_press_title">Sakrij s tipkom za pretraživanje</string>
     <plurals name="notification_summary_more">
-        <item quantity="one">+%1$d više…</item>
-        <item quantity="few">+%1$d više…</item>
-        <item quantity="other">+%1$d više…</item>
+        <item quantity="one">+još %1$d…</item>
+        <item quantity="few">+još %1$d…</item>
+        <item quantity="other">+još %1$d…</item>
     </plurals>
     <string name="notification_title_single_ready_to_install">Spremno za instalaciju</string>
     <string name="notification_title_single_ready_to_install_update">Ažuriranje spremno za instalaciju</string>
@@ -438,13 +439,12 @@
     <string name="over_network_always_summary">Uvijek koristi ovu vezu kad je dostupna</string>
     <string name="over_data">Putem mobilne mreže</string>
     <string name="over_wifi">Putem Wi-Fi mreže</string>
-    <string name="allow_push_requests">Dopusti repozitorijima instalirati/deinstalirati aplikacije</string>
     <string name="send_history_csv">%s povijest instalacija kao CSV datoteka</string>
     <string name="show_anti_feature_apps_on">Prikaži programe koji zahtijevaju nepoželjne funkcije</string>
     <string name="show_anti_feature_apps">Uključi programe s nepoželjnim funkcijama</string>
     <string name="antifeatures">Nepoželjne funkcije</string>
     <string name="app__tts__downloading_progress">Preuzimanje, %1$d %% gotovo</string>
-    <string name="not_visible_nearby">Dijeljenje uređaja u blizini nije omogućeno</string>
+    <string name="not_visible_nearby">Funkcija u blizini nije uključena</string>
     <string name="use_bluetooth">Koristi Bluetooth</string>
     <string name="swap_error_cannot_start_bluetooth">Nije moguće pokrenuti Bluetooth!</string>
     <string name="swap_stopping">Zaustavljanje…</string>
@@ -487,7 +487,6 @@
     <string name="app_details__no_versions__explain_incompatible_signatures">Instalirana verzija nije kompatibilna s nijednom dostupnom verzijom. Deinstaliranje aplikacije omogućiti će vam pregled i instaliranje kompatibilnih verzija. Ovo se često događa s aplikacijama instaliranim putem Google Play ili drugih izvora, ako su potpisane drugim certifikatom.</string>
     <string name="app_details__no_versions__show_incompat_versions">Za prikaz nekompatibilnih verzija omogućite postavku \"%1$s\".</string>
     <string name="scan_removable_storage_summary">Traži repozitorije paketa na prijenosnoj pohrani kao što su SD kartice i USB pohrana</string>
-    <string name="allow_push_requests_summary">Metapodaci repozitorija mogu uključivati push zahtjeve za instaliranje ili deinstaliranje aplikacija</string>
     <string name="theme_follow_system">Slijedi sustav</string>
     <string name="app_list__dismiss_installing_app">Instalacija prekinuta</string>
     <string name="undo">Natrag</string>
@@ -509,4 +508,29 @@
     <string name="swap_toast_not_removable_storage">Taj izbor se ne podudara s niti jednim uklonjivim medijem za pohranu, pokušajte ponovno!</string>
     <string name="not_visible_nearby_description">Prije razmjene s uređajima u blizini, učinite svoj uređaj vidljivim.</string>
     <string name="banner_no_internet">Nema interneta</string>
+    <string name="swap_toast_closing_nearby_after_timeout">Funkcija u blizini zatvorena je zbog neaktivnosti.</string>
+    <string name="swap_wifi_vpn_conflict">Konflikti s aktivnim VPN-om!</string>
+    <string name="share_apk_error">Nije moguće dijeliti datoteku aplikacije</string>
+    <string name="has_disallow_install_unknown_sources">Ovaj korisnik ne može dodati nepoznate izvore, što uključuje nove repozitore</string>
+    <string name="has_disallow_install_unknown_sources_globally">Administrator uređaja ne dopušta instaliranje aplikacija iz nepoznatih izvora, što uključuje nove repozitorije</string>
+    <string name="swap_toast_could_not_enable_hotspot">Nije moguće uključiti WiFi hotspot!</string>
+    <string name="swap_toast_using_path">Koristi se %1$s</string>
+    <plurals name="button_view_all_apps_in_category">
+        <item quantity="one">Pogledaj (%d)</item>
+        <item quantity="few">Pogledaj sve (%d)</item>
+        <item quantity="other">Pogledaj sve (%d)</item>
+    </plurals>
+    <string name="use_pure_black_dark_theme_summary">Preporučuje se samo za OLED ekrane.</string>
+    <string name="use_pure_black_dark_theme">Koristi potpuno crnu pozadinu u tamnoj temi</string>
+    <string name="swap_toast_hotspot_enabled">Wi-Fi Hotspot uključen</string>
+    <string name="send_fdroid_metrics_report">Pošalji metrički izvještaj %s</string>
+    <string name="send_fdroid_metrics_json">%s metrički izvještaj kao JSON datoteka</string>
+    <string name="install_history_and_metrics">Povijest instalacije i metrike</string>
+    <string name="menu_show_install_history">Prikaži povijest instalacija</string>
+    <string name="send_to_fdroid_metrics">Pošalji podatke o upotrebi</string>
+    <string name="banner_no_data_or_wifi">Nije WiFi, niti Mobilna Mreža, uključena</string>
+    <string name="menu_show_fdroid_metrics_report">Prikaži metrički izvještaj</string>
+    <string name="send_to_fdroid_metrics_summary">Sedmično šalje anonimne podatke F-Droid Metrikama (zahtjeva da se povijest o instalacijama sadrži)</string>
+    <string name="fdroid_metrics_report">%s Metrički Izvještaj</string>
+    <string name="toast_metrics_in_install_history">Izvještaj metrike %s je moguće vidjeti u Pregledniku za povijest instalacija</string>
 </resources>

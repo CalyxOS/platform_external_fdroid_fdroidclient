@@ -36,6 +36,18 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+
+import org.fdroid.fdroid.FDroidApp;
+import org.fdroid.fdroid.Preferences;
+import org.fdroid.fdroid.R;
+import org.fdroid.fdroid.Utils;
+import org.fdroid.fdroid.data.AppProvider;
+import org.fdroid.fdroid.data.Schema.AppMetadataTable;
+import org.fdroid.fdroid.data.Schema.AppMetadataTable.Cols;
+import org.fdroid.fdroid.views.main.MainActivity;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,13 +58,6 @@ import androidx.loader.content.CursorLoader;
 import androidx.loader.content.Loader;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import org.fdroid.fdroid.FDroidApp;
-import org.fdroid.fdroid.R;
-import org.fdroid.fdroid.Utils;
-import org.fdroid.fdroid.data.AppProvider;
-import org.fdroid.fdroid.data.Schema.AppMetadataTable;
-import org.fdroid.fdroid.data.Schema.AppMetadataTable.Cols;
 
 /**
  * Provides scrollable listing of apps for search and category views.
@@ -79,6 +84,7 @@ public class AppListActivity extends AppCompatActivity implements LoaderManager.
     private TextView emptyState;
     private EditText searchInput;
     private ImageView sortImage;
+    private View hiddenAppNotice;
     private Utils.KeyboardStateMonitor keyboardStateMonitor;
 
     private interface SortClause {
@@ -148,6 +154,15 @@ public class AppListActivity extends AppCompatActivity implements LoaderManager.
             }
         });
 
+        hiddenAppNotice = findViewById(R.id.hiddenAppNotice);
+        hiddenAppNotice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra(MainActivity.EXTRA_VIEW_SETTINGS, true);
+                getApplicationContext().startActivity(intent);
+            }
+        });
         emptyState = (TextView) findViewById(R.id.empty_state);
 
         View backButton = findViewById(R.id.back);
@@ -184,6 +199,13 @@ public class AppListActivity extends AppCompatActivity implements LoaderManager.
         parseIntentForSearchQuery();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Glide.with(this).applyDefaultRequestOptions(new RequestOptions()
+                .onlyRetrieveFromCache(!Preferences.get().isBackgroundDownloadAllowed()));
+    }
+
     private void parseIntentForSearchQuery() {
         Intent intent = getIntent();
         category = intent.hasExtra(EXTRA_CATEGORY) ? intent.getStringExtra(EXTRA_CATEGORY) : null;
@@ -214,6 +236,10 @@ public class AppListActivity extends AppCompatActivity implements LoaderManager.
         return string.toString();
     }
 
+    private void setShowHiddenAppsNotice(boolean show) {
+        hiddenAppNotice.setVisibility(show ? View.VISIBLE : View.GONE);
+    }
+
     @NonNull
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
@@ -229,6 +255,8 @@ public class AppListActivity extends AppCompatActivity implements LoaderManager.
 
     @Override
     public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor cursor) {
+        setShowHiddenAppsNotice(false);
+        appAdapter.setHasHiddenAppsCallback(() -> setShowHiddenAppsNotice(true));
         appAdapter.setAppCursor(cursor);
         if (cursor.getCount() > 0) {
             emptyState.setVisibility(View.GONE);
@@ -268,7 +296,9 @@ public class AppListActivity extends AppCompatActivity implements LoaderManager.
                     + ", " + table + "." + Cols.IS_LOCALIZED + " DESC"
                     + ", " + table + "." + Cols.ADDED + " ASC"
                     + ", " + table + "." + Cols.NAME + " IS NULL ASC"
-                    + ", " + table + "." + Cols.ICON + " IS NULL ASC"
+                    + ", CASE WHEN " + table + "." + Cols.ICON + " IS NULL"
+                    + "        AND " + table + "." + Cols.ICON_URL + " IS NULL"
+                    + "        THEN 1 ELSE 0 END"
                     + ", " + table + "." + Cols.SUMMARY + " IS NULL ASC"
                     + ", " + table + "." + Cols.DESCRIPTION + " IS NULL ASC"
                     + ", " + table + "." + Cols.WHATSNEW + " IS NULL ASC"
@@ -318,7 +348,9 @@ public class AppListActivity extends AppCompatActivity implements LoaderManager.
                 + ", " + table + "." + Cols.IS_LOCALIZED + " DESC"
                 + ", " + table + "." + Cols.ADDED + " ASC"
                 + ", " + table + "." + Cols.NAME + " IS NULL ASC"
-                + ", " + table + "." + Cols.ICON + " IS NULL ASC"
+                + ", CASE WHEN " + table + "." + Cols.ICON + " IS NULL"
+                + "        AND " + table + "." + Cols.ICON_URL + " IS NULL"
+                + "        THEN 1 ELSE 0 END"
                 + ", " + table + "." + Cols.SUMMARY + " IS NULL ASC"
                 + ", " + table + "." + Cols.DESCRIPTION + " IS NULL ASC"
                 + ", " + table + "." + Cols.WHATSNEW + " IS NULL ASC"

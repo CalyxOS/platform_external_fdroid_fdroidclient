@@ -49,24 +49,17 @@ import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.DisplayCompat;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.encode.Contents;
 import com.google.zxing.encode.QRCodeEncoder;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 
 import org.fdroid.fdroid.compat.FileCompat;
 import org.fdroid.fdroid.data.App;
 import org.fdroid.fdroid.data.Repo;
 import org.fdroid.fdroid.data.SanitizedFile;
+import org.fdroid.fdroid.data.Schema;
 import org.xml.sax.XMLReader;
 
 import java.io.BufferedInputStream;
@@ -89,6 +82,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Formatter;
@@ -96,10 +90,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.DisplayCompat;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.schedulers.Schedulers;
@@ -124,7 +125,8 @@ public final class Utils {
             "%.0f B", "%.0f KiB", "%.1f MiB", "%.2f GiB",
     };
 
-    private static RequestOptions repoAppDisplayImageOptions;
+    private static RequestOptions iconRequestOptions;
+    private static RequestOptions alwaysShowIconRequestOptions;
 
     private static Pattern safePackageNamePattern;
 
@@ -483,26 +485,33 @@ public final class Utils {
 
     /**
      * Gets the {@link RequestOptions} instance used to configure
-     * {@link Glide} instances
-     * used to display app icons.  It lazy loads a reusable static instance.
+     * {@link Glide} instances used to display app icons that should always be
+     * downloaded.  It lazy loads a reusable static instance.
      */
-    public static RequestOptions getRepoAppDisplayImageOptions() {
-        if (repoAppDisplayImageOptions == null) {
-            repoAppDisplayImageOptions = new RequestOptions()
+    public static RequestOptions getAlwaysShowIconRequestOptions() {
+        if (alwaysShowIconRequestOptions == null) {
+            alwaysShowIconRequestOptions = new RequestOptions()
+                    .onlyRetrieveFromCache(false)
                     .error(R.drawable.ic_repo_app_default)
                     .fallback(R.drawable.ic_repo_app_default);
         }
-        return repoAppDisplayImageOptions;
+        return alwaysShowIconRequestOptions;
     }
 
     /**
-     * If app has an iconUrl we feed that to UIL, otherwise we ask the PackageManager which will
-     * return the app's icon directly when the app is installed.
-     * We fall back to the placeholder icon otherwise.
+     * Write app icon into the view, downloading it as necessary and if the
+     * settings allow it.  Fall back to the placeholder icon otherwise.
+     *
+     * @see Preferences#isBackgroundDownloadAllowed()
      */
     public static void setIconFromRepoOrPM(@NonNull App app, ImageView iv, Context context) {
-        RequestOptions options = Utils.getRepoAppDisplayImageOptions();
-        Glide.with(context).load(app.getIconUrl(iv.getContext())).apply(options).into(iv);
+        if (iconRequestOptions == null) {
+            iconRequestOptions = new RequestOptions()
+                    .error(R.drawable.ic_repo_app_default)
+                    .fallback(R.drawable.ic_repo_app_default);
+        }
+        iconRequestOptions.onlyRetrieveFromCache(!Preferences.get().isBackgroundDownloadAllowed());
+        Glide.with(context).load(app.getIconUrl(iv.getContext())).apply(iconRequestOptions).into(iv);
     }
 
     // this is all new stuff being added
@@ -972,6 +981,7 @@ public final class Utils {
         })
                 .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
+                .onErrorReturnItem(Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888))
                 .doOnError(throwable -> Log.e(TAG, "Could not encode QR as bitmap", throwable));
     }
 
@@ -1004,5 +1014,60 @@ public final class Utils {
         public boolean isKeyboardVisible() {
             return visible;
         }
+    }
+
+    /**
+     * Returns a list of unwanted anti-features from a list of acceptable anti-features
+     * Basically: all anti-features minus the ones that are okay.
+     */
+    private static List<String> unwantedAntifeatures(Context context, Set<String> acceptableAntifeatures) {
+        List<String> antiFeatures = new ArrayList<>(
+                Arrays.asList(context.getResources().getStringArray(R.array.antifeaturesValues))
+        );
+
+        antiFeatures.removeAll(acceptableAntifeatures);
+
+        return antiFeatures;
+    }
+
+    /**
+     * Returns a SQL filter to use in Cursors to filter out everything with non-acceptable antifeatures
+     *
+     * @param context
+     * @return String
+     */
+    public static String getAntifeatureSQLFilter(Context context) {
+        List<String> unwantedAntifeatures = Utils.unwantedAntifeatures(
+                context,
+                Preferences.get().showAppsWithAntiFeatures()
+        );
+
+        StringBuilder antiFeatureFilter = new StringBuilder(Schema.AppMetadataTable.NAME)
+                .append(".")
+                .append(Schema.AppMetadataTable.Cols.ANTI_FEATURES)
+                .append(" IS NULL");
+
+        if (!unwantedAntifeatures.isEmpty()) {
+            antiFeatureFilter.append(" OR (");
+
+            for (int i = 0; i < unwantedAntifeatures.size(); i++) {
+                String unwantedAntifeature = unwantedAntifeatures.get(i);
+
+                if (i > 0) {
+                    antiFeatureFilter.append(" AND ");
+                }
+
+                antiFeatureFilter.append(Schema.AppMetadataTable.NAME)
+                        .append(".")
+                        .append(Schema.AppMetadataTable.Cols.ANTI_FEATURES)
+                        .append(" NOT LIKE '%")
+                        .append(unwantedAntifeature)
+                        .append("%'");
+            }
+
+            antiFeatureFilter.append(")");
+        }
+
+        return antiFeatureFilter.toString();
     }
 }

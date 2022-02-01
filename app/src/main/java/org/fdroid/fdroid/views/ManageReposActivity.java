@@ -33,6 +33,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.UserManager;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -124,6 +125,7 @@ public class ManageReposActivity extends AppCompatActivity
 
         MaterialToolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
@@ -194,7 +196,11 @@ public class ManageReposActivity extends AppCompatActivity
     @Override
     public void finish() {
         Intent ret = new Intent();
-        setResult(RESULT_OK, ret);
+        if (getIntent() != null && hasDisallowInstallUnknownSources(this)) {
+            setResult(RESULT_CANCELED, ret);
+        } else {
+            setResult(RESULT_OK, ret);
+        }
         super.finish();
     }
 
@@ -262,7 +268,12 @@ public class ManageReposActivity extends AppCompatActivity
     }
 
     private void showAddRepo(String newAddress, String newFingerprint, String username, String password) {
-        new AddRepo(newAddress, newFingerprint, username, password);
+        if (hasDisallowInstallUnknownSources(this)) {
+            String msg = getDisallowInstallUnknownSourcesErrorMessage(this);
+            Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+        } else {
+            new AddRepo(newAddress, newFingerprint, username, password);
+        }
     }
 
     /**
@@ -658,8 +669,10 @@ public class ManageReposActivity extends AppCompatActivity
                                 final View view = getLayoutInflater().inflate(R.layout.login, null);
                                 final AlertDialog credentialsDialog = new AlertDialog.Builder(context)
                                         .setView(view).create();
-                                final EditText nameInput = (EditText) view.findViewById(R.id.edit_name);
-                                final EditText passwordInput = (EditText) view.findViewById(R.id.edit_password);
+                                final TextInputLayout nameTextInputLayout = view.findViewById(R.id.edit_name);
+                                final TextInputLayout passwordTextInputLayout = view.findViewById(R.id.edit_password);
+                                final EditText nameInput = nameTextInputLayout.getEditText();
+                                final EditText passwordInput = passwordTextInputLayout.getEditText();
 
                                 if (username != null) {
                                     nameInput.setText(username);
@@ -910,5 +923,33 @@ public class ManageReposActivity extends AppCompatActivity
      */
     private void notifyDataSetChanged() {
         getSupportLoaderManager().restartLoader(0, null, this);
+    }
+
+    /**
+     * {@link android.app.admin.DevicePolicyManager} makes it possible to set
+     * user- or device-wide restrictions.  This changes whether installing from
+     * "Unknown Sources" has been disallowed by device policy.
+     *
+     * @return boolean whether installing from Unknown Sources has been disallowed
+     * @see UserManager#DISALLOW_INSTALL_UNKNOWN_SOURCES
+     * @see UserManager#DISALLOW_INSTALL_UNKNOWN_SOURCES_GLOBALLY
+     */
+    public static boolean hasDisallowInstallUnknownSources(Context context) {
+        UserManager userManager = (UserManager) context.getSystemService(Context.USER_SERVICE);
+        if (Build.VERSION.SDK_INT < 29) {
+            return userManager.hasUserRestriction(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES);
+        } else {
+            return userManager.hasUserRestriction(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES)
+                    || userManager.hasUserRestriction(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES_GLOBALLY);
+        }
+    }
+
+    public static String getDisallowInstallUnknownSourcesErrorMessage(Context context) {
+        UserManager userManager = (UserManager) context.getSystemService(Context.USER_SERVICE);
+        if (Build.VERSION.SDK_INT >= 29
+                && userManager.hasUserRestriction(UserManager.DISALLOW_INSTALL_UNKNOWN_SOURCES_GLOBALLY)) {
+            return context.getString(R.string.has_disallow_install_unknown_sources_globally);
+        }
+        return context.getString(R.string.has_disallow_install_unknown_sources);
     }
 }

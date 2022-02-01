@@ -15,7 +15,7 @@
 ~ See the License for the specific language governing permissions and
 ~ limitations under the License.
 -->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="Base.Theme.App" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!--Material shape attributes-->
@@ -36,6 +36,7 @@
         <!--selection controls.-->
         <item name="colorPrimary">@color/fdroid_blue</item>
         <item name="colorPrimaryVariant">@color/fdroid_blue_dark</item>
+        <item name="colorPrimaryDark">?colorPrimaryVariant</item>
         <item name="colorSecondary">@color/fdroid_green</item>
         <!--colorBackground appears behind scrollable content and is used for the default window-->
         <!--background. colorSurface is mapped to the surface of components such as cards, sheets-->
@@ -49,7 +50,7 @@
         <item name="mainTabSwapBackground">#fafafa</item>
         <item name="detailPanel">@drawable/details_panel_donate_background_light</item>
         <item name="antiFeaturesWarning">@drawable/ic_warning</item>
-        <item name="backButtonDrawable">@drawable/ic_back</item>
+        <item name="backButtonDrawable">@drawable/abc_ic_ab_back_material</item>
         <item name="clearButtonDrawable">@drawable/ic_close</item>
 
         <!--"On" colors define how text, icons and strokes are colored in relation to the surface-->
@@ -69,6 +70,9 @@
         <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView.PrimarySurface</item>
 
         <item name="screenshotPlaceholderIconColor">#e8e8e8</item>
+
+        <!--Platform attributes-->
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
     </style>
 
     <!-- light app theme with accent colors following roughly android design guidelines -->

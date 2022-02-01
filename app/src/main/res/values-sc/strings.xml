@@ -191,7 +191,7 @@
         unu navigadore.
     </string>
     <string name="swap_choose_apps">Issèbera aplicatziones</string>
-    <string name="swap_scan_qr">Iscansi còdighe QR</string>
+    <string name="swap_scan_qr">Còdighe QR</string>
     <string name="swap_people_nearby">Pessones a curtzu</string>
     <string name="swap_scanning_for_peers">Chirchende pro pessones a curtzu…</string>
     <string name="swap_nearby">Cumpartzidura a curtzu</string>
@@ -472,8 +472,6 @@
     <string name="send_version_and_uuid">Imbia sa versione e s\'UUID a sos servers</string>
     <string name="send_version_and_uuid_summary">Inclue sa versione de custa aplicatzione e un\'ID ùnicu a casu cando ses iscarrighende. At a tènnere efetu a pustis de s\'allughìngiu imbeniente de s\'aplicatzione.</string>
     <string name="share_repository">Cumpartzi su depòsitu</string>
-    <string name="allow_push_requests">Permiti a sos depòsitos de installare/disinstallare aplicatziones</string>
-    <string name="allow_push_requests_summary">Sos metadatos de sos depòsitos podent incluire rechestas de installare o disinstallare aplicatziones</string>
     <string name="antinosourcesince">Su còdighe mitza no est prus disponìbile, no est possìbile fàghere agiornamentos.</string>
     <string name="send_install_history">Imbia sa cronologia de sas installatziones</string>
     <string name="send_history_csv">%s sa cronologia de sas installatziones comente unu documentu CSV</string>
@@ -539,4 +537,21 @@
     <string name="use_pure_black_dark_theme">Imprea un\'isfundu nieddu de su totu in su tema iscuru</string>
     <string name="banner_no_data_or_wifi">Peruna connessione mòbile o Wifi ativa</string>
     <string name="banner_no_internet">Chene ìnternet</string>
+    <string name="share_apk_error">Cumpartzidura de su documentu de s\'aplicatzione fallida</string>
+    <string name="apps">Aplicatziones</string>
+    <string name="swap_wifi_vpn_conflict">Cunflitos cun sa VPN ativa!</string>
+    <string name="has_disallow_install_unknown_sources">Custu impreadore non podet annànghere fontes disconnotas, chi incluint fintzas sos depòsitos noos</string>
+    <string name="has_disallow_install_unknown_sources_globally">S\'amministradore de su dispositivu tuo non permitit s\'installatzione de aplicatzione dae fontes disconnotas, cosa chi incluit sos depòsitos noos</string>
+    <string name="antinonfreead">Estensiones non lìberas</string>
+    <string name="antitrack">Arrastamentu</string>
+    <string name="antiads">Publitzidade</string>
+    <string name="antinonfreedep">Dipendèntzias non lìberas</string>
+    <string name="app_list_results_hidden_antifeature_settings">Unos cantos resurtados sunt istados cuados sighende sas impostatziones tuas pro sas anti-funtzionalidades.</string>
+    <string name="antinonfreenet">Servìtzios de retza non lìberos</string>
+    <string name="antiknownvuln">Vulnerabilidade connota</string>
+    <string name="antinosource">Còdighe de orìgine non prus a disponimentu</string>
+    <string name="antinonfreeassets">Cumponentes non lìberos</string>
+    <string name="antidisabledalgorithm">Firmadu impreende un\'algoritmu non seguru</string>
+    <string name="antiupstreamnonfree">A monte (upstream) non lìberu</string>
+    <string name="antiothers">Àteras anti-funtzionalidades</string>
 </resources>

@@ -10,6 +10,7 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.os.LocaleList;
@@ -25,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.io.filefilter.RegexFileFilter;
 import org.fdroid.fdroid.FDroidApp;
 import org.fdroid.fdroid.Preferences;
+import org.fdroid.fdroid.R;
 import org.fdroid.fdroid.Utils;
 import org.fdroid.fdroid.data.Schema.AppMetadataTable.Cols;
 import org.xmlpull.v1.XmlPullParser;
@@ -721,6 +723,17 @@ public class App extends ValueObject implements Comparable<App>, Parcelable {
         return description.replace("\n", "<br>");
     }
 
+    /**
+     * Get the URL with the standard path for displaying in a browser.
+     */
+    @NonNull
+    public Uri getShareUri(Context context) {
+        Repo repo = RepoProvider.Helper.findById(context, repoId);
+        return Uri.parse(repo.address).buildUpon()
+                .path(String.format("/packages/%s/", packageName))
+                .build();
+    }
+
     public String getIconUrl(Context context) {
         Repo repo = RepoProvider.Helper.findById(context, repoId);
         if (TextUtils.isEmpty(iconUrl)) {
@@ -1127,12 +1140,32 @@ public class App extends ValueObject implements Comparable<App>, Parcelable {
 
     /**
      * @return if the given app should be filtered out based on the
-     * {@link Preferences#PREF_SHOW_ANTI_FEATURE_APPS Show Anti-Features Setting}
+     * {@link Preferences#PREF_SHOW_ANTI_FEATURES Show Anti-Features Setting}
      */
-    public boolean isDisabledByAntiFeatures() {
-        return this.antiFeatures != null
-                && this.antiFeatures.length > 0
-                && !Preferences.get().showAppsWithAntiFeatures();
+    public boolean isDisabledByAntiFeatures(Context context) {
+        if (this.antiFeatures == null) {
+            return false;
+        }
+
+        List<String> chooseableAntiFeatures = Arrays.asList(
+                context.getResources().getStringArray(R.array.antifeaturesValues)
+        );
+
+        Set<String> shownAntiFeatures = Preferences.get().showAppsWithAntiFeatures();
+
+        for (String antiFeature : this.antiFeatures) {
+            if (chooseableAntiFeatures.contains(antiFeature)) {
+                if (!shownAntiFeatures.contains(antiFeature)) {
+                    return true;
+                }
+            } else {
+                if (!shownAntiFeatures.contains(context.getResources().getString(R.string.antiothers_key))) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     @Nullable
@@ -1160,7 +1193,6 @@ public class App extends ValueObject implements Comparable<App>, Parcelable {
     public String getLiberapayUri() {
         return TextUtils.isEmpty(liberapay) ? null : "https://liberapay.com/" + liberapay;
     }
-
 
     /**
      * @see App#autoInstallVersionName for why this uses a getter while other member variables are

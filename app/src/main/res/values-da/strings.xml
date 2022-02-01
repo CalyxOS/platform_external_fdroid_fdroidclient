@@ -7,7 +7,7 @@
     <string name="delete">Slet</string>
     <string name="enable_nfc_send">Aktiver NFC send…</string>
     <string name="cache_downloaded">Behold cache-lagrede apps</string>
-    <string name="updates">Opdat.</string>
+    <string name="updates">Opdateringer</string>
     <string name="unstable_updates">Ustabile opdateringer</string>
     <string name="unstable_updates_summary">Foreslå opdateringer til ustabile versioner</string>
     <string name="other">Andet</string>
@@ -191,7 +191,7 @@
     <string name="swap_dont_show_again">Vis ikke dette igen</string>
     <string name="swap_scan_or_type_url">En person skal skanne koden, eller skrive den andens URL i en browser.</string>
     <string name="swap_choose_apps">Vælg apps</string>
-    <string name="swap_scan_qr">Skan QR-kode</string>
+    <string name="swap_scan_qr">QR-kode</string>
     <string name="swap_people_nearby">Folk i nærheden</string>
     <string name="swap_scanning_for_peers">Leder efter folk i nærheden…</string>
     <string name="swap_nearby">Nærhedsudveksling</string>
@@ -311,7 +311,7 @@
         <item quantity="one">Vis %d</item>
         <item quantity="other">Vis alle %d</item>
     </plurals>
-    <string name="nearby_splash__download_apps_from_people_nearby">Ingen Internet? Hent apps fra folk i nærheden af dig!</string>
+    <string name="nearby_splash__download_apps_from_people_nearby">Ingen internetadgang\? Hent apps fra folk i nærheden af dig!</string>
     <string name="nearby_splash__find_people_button">Find personer i nærheden</string>
     <string name="nearby_splash__both_parties_need_fdroid">Begge parter skal have %1$s for at benytte \"i nærheden\".</string>
     <string name="app__tts__downloading_progress">Henter, %1$d%% udført</string>
@@ -394,7 +394,6 @@
     <string name="send_history_csv">%s installationshistorik som CSV-fil</string>
     <string name="install_history">Installationshistorik</string>
     <string name="send_version_and_uuid">Send version og UUID til servere</string>
-    <string name="allow_push_requests">Tillad depoter at installere/afinstallere apps</string>
     <string name="over_wifi">Via trådløst netværk</string>
     <string name="scan_removable_storage_title">Skan udskifteligt lager</string>
     <string name="about_forum">Hjælpe forum</string>
@@ -453,7 +452,6 @@
     <string name="repo_delete_to_overwrite">Først slettes %1$s for at tilføje den med en modstridende nøgle.</string>
     <string name="preventScreenshots_summary">Blokerer skærmbilleder fra at blive taget og skjuler program indhold fra seneste programmer skærme</string>
     <string name="hiding_dialog_warning">Advarsel: Enhver appgenvej på startskærmen fjernes også og vil skulle tilføjes manuelt igen.</string>
-    <string name="allow_push_requests_summary">Arkiv metadata kan omfatte skubbe-forespørgsler for at installere og afinstallere apps</string>
     <string name="scan_removable_storage_summary">Søg efter pakkearkiver på fjernbare lagerenheder som SD-kort og USB-drev</string>
     <string name="menu_translation">Oversættelse</string>
     <string name="main_menu__updates">Nyt</string>
@@ -505,4 +503,15 @@
     <string name="install_history_and_metrics">Installér historik og måling</string>
     <string name="send_fdroid_metrics_json">%s målerapport som en JSON-fil</string>
     <string name="send_fdroid_metrics_report">Send %s målerapport</string>
+    <string name="apps">Apps</string>
+    <string name="swap_wifi_vpn_conflict">Konflikt med den aktive VPN!</string>
+    <string name="share_apk_error">Kunne ikke dele app fil</string>
+    <string name="banner_no_data_or_wifi">Ingen Data eller WiFi tilgængeligt</string>
+    <string name="banner_no_internet">Ingen internetadgang</string>
+    <string name="has_disallow_install_unknown_sources">Ukendte kilder kan ikke tilføjes af denne bruger, dette inkluderer nye depoter</string>
+    <string name="has_disallow_install_unknown_sources_globally">Din enhedsadministrator tillader ikke installation af apps fra ukendte kilder, dette inkluderer nye depoter</string>
+    <string name="antiads">Reklamer</string>
+    <string name="antitrack">Sporing</string>
+    <string name="antinonfreenet">Ikke-frie netværkstjenester</string>
+    <string name="app_list_results_hidden_antifeature_settings">Nogle resultater blev skjult på grund af dine antifeature-indstillinger.</string>
 </resources>

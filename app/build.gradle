@@ -24,7 +24,7 @@ android {
     compileSdkVersion 30
 
     defaultConfig {
-        versionCode 1014100
+        versionCode 1014101
         versionName getVersionName()
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
@@ -41,10 +41,16 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
 
+    ext {
+        APP_NAME = "@string/app_name"
+        APP_NAME_DEBUG = "@string/app_name_debug"
+    }
+
     buildTypes {
         // use proguard on debug too since we have unknowingly broken
         // release builds before.
         all {
+            manifestPlaceholders = [ applicationLabel: APP_NAME ]
             minifyEnabled true
             shrinkResources true
             buildConfigField "String", "PRIVILEGED_EXTENSION_PACKAGE_NAME", privilegedExtensionApplicationId
@@ -53,6 +59,7 @@ android {
             testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro', 'src/androidTest/proguard-rules.pro'
         }
         debug {
+            manifestPlaceholders = [ applicationLabel: APP_NAME_DEBUG ]
             applicationIdSuffix ".debug"
             resValue "string", "applicationId", fullApplicationId + applicationIdSuffix
             versionNameSuffix "-debug"
@@ -174,7 +181,6 @@ dependencies {
 
     implementation 'org.bouncycastle:bcprov-jdk15on:1.65'
     fullImplementation 'org.bouncycastle:bcpkix-jdk15on:1.65'
-    fullImplementation 'cc.mvdan.accesspoint:library:0.2.0'
     fullImplementation 'org.jmdns:jmdns:3.5.5'
     fullImplementation 'org.nanohttpd:nanohttpd:2.3.1'
 

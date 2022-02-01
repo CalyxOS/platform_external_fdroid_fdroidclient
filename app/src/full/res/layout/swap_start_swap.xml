@@ -153,7 +153,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_send_fdroid"
             style="@style/Widget.App.Button.TextButton"
             android:layout_width="wrap_content"
@@ -161,13 +161,27 @@
             android:layout_height="wrap_content"
             android:text="@string/swap_send_fdroid" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_scan_qr"
             style="@style/Widget.App.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/swap_scan_qr"
             swap:icon="@drawable/ic_qr_code" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_apps"
+            style="@style/Widget.App.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:text="@string/apps"
+            swap:icon="@drawable/ic_apps" />
 
     </LinearLayout>
 

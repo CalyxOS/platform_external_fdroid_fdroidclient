@@ -53,7 +53,7 @@
     <string name="category_Science_Education">العلوم و التعليم</string>
     <string name="category_Security">الأمان</string>
     <string name="category_System">النظام</string>
-    <string name="app_name">اِف‌-دروید</string>
+    <string name="app_name">اف-درويد</string>
     <string name="SignatureMismatch">الإصدار الجديد يحتوي على مفتاح مختلف عن القديم. لتثبيت الإصدار الجديد، يجب أن يتم إلغاء تثبيت القديم أولا. يرجى القيام بذلك وإعادة المحاولة مرة أخرى. (علما أنه عند إلغاء التثبيت سيتم محو البيانات الداخلية المخزنة من قِبل التطبيق)</string>
     <string name="installIncompatible">التطبيق غير متوافق مع جهازك. هل تريد تثبيته على أي حال؟</string>
     <string name="menu_email">إرسال رسالة للمالك</string>
@@ -205,7 +205,7 @@
     <string name="swap_dont_show_again">عدم إظهار ذلك مرة أخرى</string>
     <string name="swap_scan_or_type_url">شخص واحد يحتاج إلى فحص الرمز، أو كتابة عنوان الرابط الآخر في المتصفح.</string>
     <string name="swap_choose_apps">اختر تطبيقات</string>
-    <string name="swap_scan_qr">امسح رمز الكيو آر</string>
+    <string name="swap_scan_qr">رمز QR</string>
     <string name="swap_people_nearby">أشخاص حولي</string>
     <string name="swap_scanning_for_peers">جارٍ البحث عن أشخاص بالقرب مني…</string>
     <string name="swap_nearby">المبادلة في مكان قريب</string>
@@ -220,6 +220,7 @@
     <string name="swap_wifi_device_name">اسم الجهاز</string>
     <string name="swap_cant_find_peers">لا يمكن العثور على من كنت تبحث عنه؟</string>
     <string name="swap_send_fdroid">إرسال اف-درويد</string>
+    <string name="apps">التطبيقات</string>
     <string name="swap_no_peers_nearby">لا يمكن العثور على شخص في مكان قريب للمبادلة معه.</string>
     <string name="swap_connecting">جارٍ الاتصال</string>
     <string name="swap_confirm">تأكيد المبادلة</string>
@@ -258,8 +259,8 @@
     <string name="keep_month">شهر</string>
     <string name="keep_year">سنة</string>
     <string name="keep_forever">إلى الأبد</string>
-    <string name="theme_light">فاتحة</string>
-    <string name="theme_dark">داكنة</string>
+    <string name="theme_light">ابيض</string>
+    <string name="theme_dark">اسود</string>
     <string name="crash_dialog_title">لقد تعطل اف-درويد</string>
     <string name="crash_dialog_text">حدث خطأ غير متوقع أجبَر التطبيق على التوقف. هل ترغب في إرسال بريد إلكتروني بالتفاصيل للمساعدة في حل المشكلة ؟</string>
     <string name="crash_dialog_comment_prompt">يمكنك إضافة معلومات وتعليقات إضافية هنا:</string>
@@ -474,8 +475,6 @@
     <string name="install_history_summary">عرض السجل الخاص لجميع عمليات التثبيت وعمليات الإزالة</string>
     <string name="send_version_and_uuid">إرسال نسخة و عنوان UUID إلى الخوادم</string>
     <string name="send_version_and_uuid_summary">تضمين إصدار هذا التطبيق ومعرف عشوائي وفريد عند التنزيل ، يسري مفعوله عند إعادة تشغيل التطبيق التالية.</string>
-    <string name="allow_push_requests">السماح للمستودعات بتثبيت / إلغاء تثبيت التطبيقات</string>
-    <string name="allow_push_requests_summary">يمكن أن تتضمن بيانات تعريف المستودع طلبات الدفع لتثبيت التطبيقات أو إلغاء تثبيتها</string>
     <string name="repo_delete_to_overwrite">قم أولاً بحذف %1$s لإضافة هذا باستخدام مفتاح متعارض.</string>
     <string name="repo_exists_add_mirror">هذه نسخة من %1$s ، هل تريد إضافتها كمرآة؟</string>
     <string name="antinosourcesince">لم يعد الكود المصدري متاحا ، ولا توجد تحديثات ممكنة.</string>
@@ -553,4 +552,21 @@
     <string name="use_pure_black_dark_theme">استخدم خلفية سوداء نقية في المظهر داكن</string>
     <string name="banner_no_data_or_wifi">لم يتم تمكين البيانات أو WiFi</string>
     <string name="banner_no_internet">لا يوجد إنترنت</string>
+    <string name="share_apk_error">تعذر مشاركة ملف التطبيق</string>
+    <string name="has_disallow_install_unknown_sources">لا يمكن إضافة مصادر غير معروفة بواسطة هذا المستخدم ، بما في ذلك عمليات اضافة مستودعات جديدة</string>
+    <string name="has_disallow_install_unknown_sources_globally">لا يسمح مسؤول جهازك بتثبيت التطبيقات من مصادر غير معروفة، والتي تتضمن مستودعات جديدة</string>
+    <string name="swap_wifi_vpn_conflict">يتعارض مع VPN النشط!</string>
+    <string name="antinosource_key">لا يوجد مصدر منذ</string>
+    <string name="antiads">إعلانات</string>
+    <string name="antitrack">تتبع</string>
+    <string name="antinonfreead">إضافات غير مجانية</string>
+    <string name="antinonfreenet">خدمات شبكة غير مجانية</string>
+    <string name="antinonfreedep">تبعيات غير حرة</string>
+    <string name="antinosource">شفرة المصدر لم تعد متوفرة</string>
+    <string name="antinonfreeassets">الأصول غير الحرة</string>
+    <string name="antidisabledalgorithm">تم التوقيع باستخدام خوارزمية غير آمنة</string>
+    <string name="antiknownvuln">مشكلة ثغرة معروفة</string>
+    <string name="app_list_results_hidden_antifeature_settings">تم إخفاء بعض النتائج استنادا إلى إعدادات مكافحة الميزات.</string>
+    <string name="antiupstreamnonfree">المصدر ليس حر</string>
+    <string name="antiothers">الميزات المضادة الأخرى</string>
 </resources>

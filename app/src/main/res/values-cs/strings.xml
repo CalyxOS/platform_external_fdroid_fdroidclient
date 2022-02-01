@@ -189,7 +189,7 @@
     <string name="swap_active_hotspot">%1$s (tvůj hotspot)</string>
     <string name="swap_dont_show_again">Toto už nezobrazovat</string>
     <string name="swap_choose_apps">Vybrat aplikace</string>
-    <string name="swap_scan_qr">Skenovat QR kód</string>
+    <string name="swap_scan_qr">QR kód</string>
     <string name="swap_people_nearby">Lidé Nablízku</string>
     <string name="swap_scanning_for_peers">Hledání lidí v blízkosti…</string>
     <string name="swap_nearby">Výměna Nablízku</string>
@@ -202,6 +202,7 @@
     <string name="swap_wifi_device_name">Jméno přístroje</string>
     <string name="swap_cant_find_peers">Nemůžete nalézt koho hledáte?</string>
     <string name="swap_send_fdroid">Odeslat F-Droid</string>
+    <string name="apps">Aplikace</string>
     <string name="swap_connecting">Připojování</string>
     <string name="swap_confirm">Potvrdit výměnu</string>
     <string name="swap_qr_isnt_for_swap">Naskenovaný QR kód nevypadá jako výměnný kód.</string>
@@ -251,7 +252,7 @@
     <string name="swap_stopping_wifi">Odpojení Wi-Fi…</string>
     <string name="swap_no_peers_nearby">V blízkosti nenalezen nikdo pro výměnu aplikací.</string>
     <string name="swap_connection_misc_error">Došlo k chybě při připojování k přístroji, zdá se že nelze vyměňovat aplikace!</string>
-    <string name="install_confirm_update">Chcete nainstalovat aktualizaci této aplikace\? Stávající data nebudou ztracena. Aktualizovaná aplikace získá přístup k následujícímu:</string>
+    <string name="install_confirm_update">Chcete nainstalovat aktualizaci této existující aplikace? Stávající data nebudou ztracena. Aktualizovaná aplikace získá přístup k následujícímu:</string>
     <string name="install_confirm_update_system">Chcete nainstalovat aktualizaci této integrované aplikace? Stávající data nebudou ztracena. Aktualizovaná aplikace získá přístup k následujícímu:</string>
     <string name="install_confirm_update_no_perms">Chcete nainstalovat aktualizaci této existující aplikace? Vaše existující data nebudou ztracena. Není vyžadován žádný zvláštní přístup.</string>
     <string name="install_confirm_update_system_no_perms">Chcete nainstalovat aktualizaci této integrované aplikace? Vaše existující data nebudou ztracena. Není vyžadován žádný zvláštní přístup.</string>
@@ -272,7 +273,7 @@
     <string name="keep_install_history">Uchovat historii instalací</string>
     <string name="keep_install_history_summary">Uchovávat záznamy o všech instalacích a odinstalacích soukromém úložišti</string>
     <string name="update_auto_install">Automaticky nainstalovat aktualizace</string>
-    <string name="update_auto_install_summary">Stažení a aktualizace aplikací na pozadí, zobrazení oznámení</string>
+    <string name="update_auto_install_summary">Stahovat a aktualizovat aplikace na pozadí, zobrazovat upozornění</string>
     <string name="versions">Verze</string>
     <string name="warning_no_internet">Nedaří se aktualizovat – jste připojení k Internetu?</string>
     <string name="app_details_donate_prompt_unknown_author">Koupit vývojářům kávu za %1$s!</string>
@@ -300,7 +301,7 @@
     <string name="notification_title_summary_installed">Úspěšně nainstalováno</string>
     <string name="notification_title_summary_install_error">Instalace selhala</string>
     <string name="notification_action_update">Aktualizovat</string>
-    <string name="notification_action_cancel">Storno</string>
+    <string name="notification_action_cancel">Zrušit</string>
     <string name="notification_action_install">Nainstalovat</string>
     <string name="app_recommended_version_installed">Verze %1$s (doporučeno)</string>
     <string name="app_new">Nové</string>
@@ -461,8 +462,6 @@
     <string name="send_history_csv">%s historii instalací jako CSV soubor</string>
     <string name="send_version_and_uuid">Poslat verzi a nikde se neopakující identifikátor na servery</string>
     <string name="send_version_and_uuid_summary">Při stahování zahrnout verzi této aplikace a náhodný, neopakující se identifikátor (změna se projeví po restartu aplikace).</string>
-    <string name="allow_push_requests">Umožnit repozitářům instalovat/odinstalovat aplikace</string>
-    <string name="allow_push_requests_summary">Metadata repozitáře mohou obsahovat push požadavky na instalaci nebo odinstalaci aplikací</string>
     <string name="updates_disabled_by_settings">Veškeré aktualizace vypnuty kvůli nastavením dat/WiFi</string>
     <string name="antinosourcesince">Zdrojový kód už není k dispozici, aktualizace nejsou možné.</string>
     <string name="share_repository">Sdílet repozitář</string>
@@ -527,4 +526,20 @@
     <string name="install_history_and_metrics">Průběh instalací a metriky</string>
     <string name="send_fdroid_metrics_json">%s hlášení metrik jako JSON soubor</string>
     <string name="send_fdroid_metrics_report">Odeslat hlášení metrik %s</string>
+    <string name="share_apk_error">Sdílet aplikační soubor se nezdařilo</string>
+    <string name="swap_wifi_vpn_conflict">Konflikty s aktivní VPN!</string>
+    <string name="has_disallow_install_unknown_sources">Tento uživatel nemůže přidávat neznámé zdroje, včetně nových repozitářů</string>
+    <string name="has_disallow_install_unknown_sources_globally">Správce vašeho zařízení nepovoluje instalaci aplikací z neznámých zdrojů, což zahrnuje i nová úložiště</string>
+    <string name="antiads">Reklamy</string>
+    <string name="antidisabledalgorithm">Podepsáno pomocí nebezpečného algoritmu</string>
+    <string name="antiknownvuln">Známá zranitelnost</string>
+    <string name="antitrack">Sledování</string>
+    <string name="antinonfreenet">Nesvobodné síťové služby</string>
+    <string name="app_list_results_hidden_antifeature_settings">Některé výsledky byly skryty na základě nastavení funkce antifeature.</string>
+    <string name="antinonfreead">Nesvobodné doplňky</string>
+    <string name="antinonfreedep">Nesvobodné závislosti</string>
+    <string name="antiupstreamnonfree">Nesvobodný Upstream</string>
+    <string name="antinonfreeassets">Nesvobodná aktiva</string>
+    <string name="antinosource">Zdrojový kód již není dostupný</string>
+    <string name="antiothers">Další anti-funkce</string>
 </resources>

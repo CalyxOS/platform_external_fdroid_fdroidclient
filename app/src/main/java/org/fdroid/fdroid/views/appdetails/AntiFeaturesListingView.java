@@ -65,7 +65,14 @@ public class AntiFeaturesListingView extends RecyclerView {
             public void onBindViewHolder(@NonNull AntiFeatureItemViewHolder holder, int position) {
                 final String antiFeatureName = app.antiFeatures[position];
                 holder.antiFeatureIcon.setBackgroundDrawable(
-                        ContextCompat.getDrawable(getContext(), antiFeatureIcon(antiFeatureName)));
+                        ContextCompat.getDrawable(
+                                getContext(),
+                                antiFeatureIcon(
+                                        holder.antiFeatureText.getContext(),
+                                        antiFeatureName
+                                )
+                        )
+                );
                 holder.antiFeatureText.setText(
                         getAntiFeatureDescriptionText(holder.antiFeatureText.getContext(), antiFeatureName));
                 holder.entireView.setOnClickListener(new OnClickListener() {
@@ -106,56 +113,54 @@ public class AntiFeaturesListingView extends RecyclerView {
     }
 
     public static String getAntiFeatureDescriptionText(Context context, String antiFeatureName) {
-        switch (antiFeatureName) {
-            case "Ads":
-                return context.getString(R.string.antiadslist);
-            case "Tracking":
-                return context.getString(R.string.antitracklist);
-            case "NonFreeNet":
-                return context.getString(R.string.antinonfreenetlist);
-            case "NonFreeAdd":
-                return context.getString(R.string.antinonfreeadlist);
-            case "NonFreeDep":
-                return context.getString(R.string.antinonfreedeplist);
-            case "UpstreamNonFree":
-                return context.getString(R.string.antiupstreamnonfreelist);
-            case "NonFreeAssets":
-                return context.getString(R.string.antinonfreeassetslist);
-            case "DisabledAlgorithm":
-                return context.getString(R.string.antidisabledalgorithmlist);
-            case "KnownVuln":
-                return context.getString(R.string.antiknownvulnlist);
-            case "NoSourceSince":
-                return context.getString(R.string.antinosourcesince);
-            default:
-                return antiFeatureName;
+        if (antiFeatureName.equals(context.getString(R.string.antiads_key))) {
+            return context.getString(R.string.antiadslist);
+        } else if (antiFeatureName.equals(context.getString(R.string.antitrack_key))) {
+            return context.getString(R.string.antitracklist);
+        } else if (antiFeatureName.equals(context.getString(R.string.antinonfreenet_key))) {
+            return context.getString(R.string.antinonfreenetlist);
+        } else if (antiFeatureName.equals(context.getString(R.string.antinonfreead_key))) {
+            return context.getString(R.string.antinonfreeadlist);
+        } else if (antiFeatureName.equals(context.getString(R.string.antinonfreedep_key))) {
+            return context.getString(R.string.antinonfreedeplist);
+        } else if (antiFeatureName.equals(context.getString(R.string.antiupstreamnonfree_key))) {
+            return context.getString(R.string.antiupstreamnonfreelist);
+        } else if (antiFeatureName.equals(context.getString(R.string.antinonfreeassets_key))) {
+            return context.getString(R.string.antinonfreeassetslist);
+        } else if (antiFeatureName.equals(context.getString(R.string.antidisabledalgorithm_key))) {
+            return context.getString(R.string.antidisabledalgorithmlist);
+        } else if (antiFeatureName.equals(context.getString(R.string.antiknownvuln_key))) {
+            return context.getString(R.string.antiknownvulnlist);
+        } else if (antiFeatureName.equals(context.getString(R.string.antinosource_key))) {
+            return context.getString(R.string.antinosourcesince);
+        } else {
+            return antiFeatureName;
         }
     }
 
-    public static @DrawableRes int antiFeatureIcon(String antiFeatureName) {
-        switch (antiFeatureName) {
-            case "Ads":
-                return R.drawable.ic_antifeature_ads;
-            case "Tracking":
-                return R.drawable.ic_antifeature_tracking;
-            case "NonFreeNet":
-                return R.drawable.ic_antifeature_nonfreenet;
-            case "NonFreeAdd":
-                return R.drawable.ic_antifeature_nonfreeadd;
-            case "NonFreeDep":
-                return R.drawable.ic_antifeature_nonfreedep;
-            case "UpstreamNonFree":
-                return R.drawable.ic_antifeature_upstreamnonfree;
-            case "NonFreeAssets":
-                return R.drawable.ic_antifeature_nonfreeassets;
-            case "DisabledAlgorithm":
-                return R.drawable.ic_antifeature_disabledalgorithm;
-            case "KnownVuln":
-                return R.drawable.ic_antifeature_knownvuln;
-            case "NoSourceSince":
-                return R.drawable.ic_antifeature_nosourcesince;
-            default:
-                return R.drawable.ic_cancel;
+    public static @DrawableRes int antiFeatureIcon(Context context, String antiFeatureName) {
+        if (antiFeatureName.equals(context.getString(R.string.antiads_key))) {
+            return R.drawable.ic_antifeature_ads;
+        } else if (antiFeatureName.equals(context.getString(R.string.antitrack_key))) {
+            return R.drawable.ic_antifeature_tracking;
+        } else if (antiFeatureName.equals(context.getString(R.string.antinonfreenet_key))) {
+            return R.drawable.ic_antifeature_nonfreenet;
+        } else if (antiFeatureName.equals(context.getString(R.string.antinonfreead_key))) {
+            return R.drawable.ic_antifeature_nonfreeadd;
+        } else if (antiFeatureName.equals(context.getString(R.string.antinonfreedep_key))) {
+            return R.drawable.ic_antifeature_nonfreedep;
+        } else if (antiFeatureName.equals(context.getString(R.string.antiupstreamnonfree_key))) {
+            return R.drawable.ic_antifeature_upstreamnonfree;
+        } else if (antiFeatureName.equals(context.getString(R.string.antinonfreeassets_key))) {
+            return R.drawable.ic_antifeature_nonfreeassets;
+        } else if (antiFeatureName.equals(context.getString(R.string.antidisabledalgorithm_key))) {
+            return R.drawable.ic_antifeature_disabledalgorithm;
+        } else if (antiFeatureName.equals(context.getString(R.string.antiknownvuln_key))) {
+            return R.drawable.ic_antifeature_knownvuln;
+        } else if (antiFeatureName.equals(context.getString(R.string.antinosource_key))) {
+            return R.drawable.ic_antifeature_nosourcesince;
+        } else {
+            return R.drawable.ic_cancel;
         }
     }
 }

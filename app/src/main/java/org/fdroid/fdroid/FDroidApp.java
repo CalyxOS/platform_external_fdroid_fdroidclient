@@ -59,6 +59,7 @@ import org.fdroid.fdroid.data.InstalledAppProviderService;
 import org.fdroid.fdroid.data.Repo;
 import org.fdroid.fdroid.installer.ApkFileProvider;
 import org.fdroid.fdroid.installer.InstallHistoryService;
+import org.fdroid.fdroid.nearby.PublicSourceDirProvider;
 import org.fdroid.fdroid.nearby.SDCardScannerService;
 import org.fdroid.fdroid.nearby.WifiStateChangeService;
 import org.fdroid.fdroid.net.ConnectivityMonitorService;
@@ -71,6 +72,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.security.Security;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 import androidx.annotation.NonNull;
@@ -113,6 +115,7 @@ public class FDroidApp extends Application implements androidx.work.Configuratio
 
     // for the local repo on this device, all static since there is only one
     public static volatile int port;
+    public static volatile boolean generateNewPort;
     public static volatile String ipAddressString;
     public static volatile SubnetUtils.SubnetInfo subnetInfo;
     public static volatile String ssid;
@@ -184,6 +187,7 @@ public class FDroidApp extends Application implements androidx.work.Configuratio
         return R.style.Theme_App;
     }
 
+    @Deprecated // broken, use system (night) resources instead
     public static boolean isAppThemeLight() {
         return AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO;
     }
@@ -209,7 +213,16 @@ public class FDroidApp extends Application implements androidx.work.Configuratio
         }
     }
 
+    /**
+     * The built-in BouncyCastle was stripped down in {@link Build.VERSION_CODES#S}
+     * so that {@code SHA1withRSA} and {@code SHA256withRSA} are no longer included.
+     *
+     * @see <a href="https://gitlab.com/fdroid/fdroidclient/-/issues/2338">Nearby Swap Crash on Android 12: no such algorithm: SHA1WITHRSA for provider BC</a>
+     */
     public static void enableBouncyCastle() {
+        if (Build.VERSION.SDK_INT >= 31) {
+            Security.removeProvider("BC");
+        }
         Security.addProvider(BOUNCYCASTLE_PROVIDER);
     }
 
@@ -228,10 +241,17 @@ public class FDroidApp extends Application implements androidx.work.Configuratio
     /**
      * Initialize the settings needed to run a local swap repo. This should
      * only ever be called in {@link WifiStateChangeService.WifiInfoThread},
-     * after the single init call in {@link FDroidApp#onCreate()}.
+     * after the single init call in {@link FDroidApp#onCreate()}.  If there is
+     * a port conflict on binding then {@code generateNewPort} will be set and
+     * the whole discovery process will be restarted in {@link WifiStateChangeService}
      */
     public static void initWifiSettings() {
-        port = 8888;
+        if (generateNewPort) {
+            port = new Random().nextInt(8888) + 1024;
+            generateNewPort = false;
+        } else {
+            port = 8888;
+        }
         ipAddressString = null;
         subnetInfo = UNSET_SUBNET_INFO;
         ssid = "";
@@ -537,7 +557,7 @@ public class FDroidApp extends Application implements androidx.work.Configuratio
             sendBt = new Intent(Intent.ACTION_SEND);
 
             // The APK type ("application/vnd.android.package-archive") is blocked by stock Android, so use zip
-            sendBt.setType("application/zip");
+            sendBt.setType(PublicSourceDirProvider.SHARE_APK_MIME_TYPE);
             sendBt.putExtra(Intent.EXTRA_STREAM, ApkFileProvider.getSafeUri(this, packageInfo));
 
             // not all devices have the same Bluetooth Activities, so

@@ -25,6 +25,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import org.fdroid.fdroid.R;
+import org.fdroid.fdroid.Utils;
 import org.fdroid.fdroid.data.AppProvider;
 import org.fdroid.fdroid.data.Schema;
 import org.fdroid.fdroid.data.Schema.AppMetadataTable.Cols;
@@ -93,7 +94,7 @@ public class CategoryController extends RecyclerView.ViewHolder implements Loade
             image.setImageDrawable(null);
         } else {
             image.setColour(ContextCompat.getColor(activity, R.color.fdroid_blue));
-            Glide.with(activity).load("drawable://" + categoryImageId).into(image);
+            Glide.with(activity).load(categoryImageId).into(image);
         }
     }
 
@@ -152,7 +153,7 @@ public class CategoryController extends RecyclerView.ViewHolder implements Loade
                     activity,
                     AppProvider.getCategoryUri(currentCategory),
                     new String[]{Schema.AppMetadataTable.Cols._COUNT},
-                    null,
+                    Utils.getAntifeatureSQLFilter(activity),
                     null,
                     null
             );
@@ -168,11 +169,13 @@ public class CategoryController extends RecyclerView.ViewHolder implements Loade
                             Schema.AppMetadataTable.Cols.ICON,
                             Schema.AppMetadataTable.Cols.REPO_ID,
                     },
-                    null,
+                    Utils.getAntifeatureSQLFilter(activity),
                     null,
                     table + "." + Cols.IS_LOCALIZED + " DESC"
                             + ", " + table + "." + Cols.NAME + " IS NULL ASC"
-                            + ", " + table + "." + Cols.ICON + " IS NULL ASC"
+                            + ", CASE WHEN " + table + "." + Cols.ICON + " IS NULL"
+                            + "        AND " + table + "." + Cols.ICON_URL + " IS NULL"
+                            + "        THEN 1 ELSE 0 END"
                             + ", " + table + "." + Cols.SUMMARY + " IS NULL ASC"
                             + ", " + table + "." + Cols.DESCRIPTION + " IS NULL ASC"
                             + ", CASE WHEN " + table + "." + Cols.PHONE_SCREENSHOTS + " IS NULL"

@@ -19,12 +19,12 @@
     <string name="app_installed">Εγκατεστημένο</string>
     <string name="app_not_installed">Δεν είναι εγκατεστημένο</string>
     <string name="added_on">Προστέθηκε στις %s</string>
-    <string name="ok">Εντάξει</string>
+    <string name="ok">OK</string>
     <string name="yes">Ναι</string>
     <string name="no">Όχι</string>
     <string name="repo_add_title">Προσθήκη νέου αποθετηρίου</string>
     <string name="repo_add_add">Προσθήκη</string>
-    <string name="cancel">Άκυρο</string>
+    <string name="cancel">Ακύρωση</string>
     <string name="enable">Ενεργοποίηση</string>
     <string name="add_key">Προσθήκη κλειδιού</string>
     <string name="overwrite">Αντικατάσταση</string>
@@ -195,7 +195,7 @@
         του άλλου σε ένα πρόγραμμα περιήγησης.
     </string>
     <string name="swap_choose_apps">Επιλέξτε εφαρμογές</string>
-    <string name="swap_scan_qr">Σάρωση κωδικού QR</string>
+    <string name="swap_scan_qr">κωδικού QR</string>
     <string name="swap_people_nearby">Άτομα σε κοντινή απόσταση</string>
     <string name="swap_scanning_for_peers">Αναζητώντας άτομα σε κοντινή απόσταση…</string>
     <string name="swap_nearby">Κοντινή ανταλλαγή</string>
@@ -208,16 +208,17 @@
     <string name="swap_wifi_device_name">Όνομα της συσκευής</string>
     <string name="swap_cant_find_peers">Δεν βρήκατε αυτόν που αναζητάτε;</string>
     <string name="swap_send_fdroid">Αποστολή F-Droid</string>
+    <string name="apps">Εφαρμογές</string>
     <string name="swap_connecting">Σύνδεση</string>
     <string name="swap_confirm">Επιβεβαίωση ανταλλαγής</string>
     <string name="swap_qr_isnt_for_swap">Ο κώδικας QR που σαρώσατε δεν μοιάζει με έναν κωδικό ανταλλαγής.</string>
     <string name="loading">Γίνεται φόρτωση…</string>
     <string name="swap_connection_misc_error">Παρουσιάστηκε σφάλμα κατά τη σύνδεση με την συσκευή, φαίνεται ότι δεν μπορούμε να ανταλλάξουμε με αυτή!</string>
     <string name="install_confirm">χρειάζεται πρόσβαση σε</string>
-    <string name="install_confirm_update">Θέλετε να ενημερώσετε την εφαρμογή; Τα δεδομένα σας δεν θα χαθούν. Η εφαρμογή θα έχει πρόσβαση σε:</string>
-    <string name="install_confirm_update_system">Εγκατάσταση ενημέρωσης εφαρμογής; Τα δεδομένα σας δεν θα χαθούν. Η εφαρμογή θα έχει πρόσβαση σε:</string>
-    <string name="install_confirm_update_no_perms">Εγκατάσταση ενημέρωσης εφαρμογής; Τα δεδομένα σας δεν θα χαθούν. Δεν απαιτείται ειδική πρόσβαση.</string>
-    <string name="install_confirm_update_system_no_perms">Εγκατάσταση ενημέρωσης εφαρμογής; Τα δεδομένα σας δεν θα χαθούν. Δεν απαιτείται ειδική πρόσβαση.</string>
+    <string name="install_confirm_update">Θέλετε να εγκαταστήσετε μια ενημέρωση σε αυτήν την υπάρχουσα εφαρμογή; Τα υπάρχοντα δεδομένα σας δεν θα χαθούν. Η ενημερωμένη εφαρμογή θα έχει πρόσβαση σε:</string>
+    <string name="install_confirm_update_system">Θέλετε να εγκαταστήσετε μια ενημέρωση σε αυτήν την ενσωματωμένη εφαρμογή; Τα υπάρχοντα δεδομένα σας δεν θα χαθούν. Η ενημερωμένη εφαρμογή θα έχει πρόσβαση σε:</string>
+    <string name="install_confirm_update_no_perms">Θέλετε να εγκαταστήσετε μια ενημέρωση για αυτήν την υπάρχουσα εφαρμογή; Τα υπάρχοντα δεδομένα σας δεν θα χαθούν. Δεν απαιτείται ειδική πρόσβαση.</string>
+    <string name="install_confirm_update_system_no_perms">Θέλετε να εγκαταστήσετε μια ενημέρωση για αυτήν την ενσωματωμένη εφαρμογή; Τα υπάρχοντα δεδομένα σας δεν θα χαθούν. Δεν απαιτείται ειδική πρόσβαση.</string>
     <string name="newPerms">Νέο</string>
     <string name="allPerms">Όλα</string>
     <string name="perm_costs_money">Αυτό μπορεί να σας κοστίσει χρήματα</string>
@@ -285,7 +286,7 @@
     <string name="main_menu__categories">Κατηγορίες</string>
     <string name="preference_manage_installed_apps">Διαχείριση  εγκατεστημένων εφαρμογών</string>
     <string name="notification_action_update">Ενημέρωση</string>
-    <string name="notification_action_cancel">Άκυρο</string>
+    <string name="notification_action_cancel">Ακύρωση</string>
     <string name="notification_action_install">Εγκατάσταση</string>
     <string name="app_list__name__downloading_in_progress">Γίνεται λήψη %1$s</string>
     <string name="app_list__name__successfully_installed">Εγκαταστάθηκε %1$s</string>
@@ -426,8 +427,6 @@
     <string name="install_history_summary">Εμφάνιση του ιδωτικού αρχείου καταγραφής όλων των εγκαταστάσεων και απεγκαταστάσεων</string>
     <string name="send_version_and_uuid">Αποστολή της έκδοσης και του UUID στους εξυπηρετητές</string>
     <string name="send_version_and_uuid_summary">Να περιληφθεί η έκδοση αυτής της εφαρμογής και ένας τυχαίος, μοναδικός αριθμός ταυτοποίησης με κάθε λήψη, εφαρμόζεται μετά την επόμενη επανεκκίνηση της εφαρμογής.</string>
-    <string name="allow_push_requests">Να επιτρέπεται στα αποθετήρια να εγκαθιστούν/απεγκαθιστούν εφαρμογές</string>
-    <string name="allow_push_requests_summary">Τα μεταδεδομένα του αποθετηρίου μπορεί να περιλαμβάνει αιτήματα push για να εγκαθιστά ή να απεγκαθιστά εφαρμογές</string>
     <string name="over_wifi">Mέσω Wi-Fi</string>
     <string name="over_data">Μέσω δεδομένων κινητής τηλεφωνίας</string>
     <string name="over_network_always_summary">Να χρησιμοποιείται πάντα αυτή η σύνδεση, όταν είναι διαθέσιμη</string>
@@ -526,4 +525,20 @@
     <string name="use_pure_black_dark_theme">Χρήση τελείως μαύρου φόντου στο σκούρο θέμα</string>
     <string name="banner_no_data_or_wifi">Δεν έχουν ενεργοποιηθεί δεδομένα ή WiFi</string>
     <string name="banner_no_internet">Χωρίς σύνδεση στο διαδίκτυο</string>
+    <string name="has_disallow_install_unknown_sources_globally">Ο διαχειριστής της συσκευής σας δεν επιτρέπει την εγκατάσταση εφαρμογών από άγνωστες πηγές, που περιλαμβάνουν νέα repos</string>
+    <string name="swap_wifi_vpn_conflict">Συγκρούσεις με ενεργό VPN!</string>
+    <string name="antiads">Διαφημίσεις</string>
+    <string name="antitrack">Ιχνηλάτηση</string>
+    <string name="antinonfreead">Μη Δωρεάν Πρόσθετα</string>
+    <string name="antinonfreenet">Μη Δωρεάν Υπηρεσίες Δικτύου</string>
+    <string name="antinonfreedep">Μη Δωρεάν Εξαρτήσεις</string>
+    <string name="antinonfreeassets">Μη Δωρεάν Περιουσιακά Στοιχεία</string>
+    <string name="antiknownvuln">Γνωστή Ευπάθεια</string>
+    <string name="antinosource">Ο πηγαίος κώδικας δεν είναι πλέον διαθέσιμος</string>
+    <string name="antiothers">Άλλα αντι-χαρακτηριστικά</string>
+    <string name="app_list_results_hidden_antifeature_settings">Κάποια αποτελέσματα κρύφτηκαν με βάση τις ρυθμίσεις αντιλειτουργιών σας.</string>
+    <string name="has_disallow_install_unknown_sources">Δεν είναι δυνατή η προσθήκη άγνωστων πηγών από αυτόν τον χρήστη, που περιλαμβάνει νέα repos</string>
+    <string name="antiupstreamnonfree">Upstream Μη Δωρεάν</string>
+    <string name="share_apk_error">Δεν ήταν δυνατή η κοινή χρήση του αρχείου εφαρμογής</string>
+    <string name="antidisabledalgorithm">Υπογραφή με χρήση μη ασφαλούς αλγόριθμου</string>
 </resources>

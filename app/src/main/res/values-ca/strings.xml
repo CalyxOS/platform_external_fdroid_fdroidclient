@@ -125,7 +125,7 @@
     <string name="category_Multimedia">Multimèdia</string>
     <string name="category_Navigation">Navegació</string>
     <string name="category_Phone_SMS">Mòbil i missatgeria</string>
-    <string name="category_Reading">Per a llegir</string>
+    <string name="category_Reading">Lectura</string>
     <string name="category_Science_Education">Ciència i educació</string>
     <string name="category_Security">Seguretat</string>
     <string name="category_System">Sistema</string>
@@ -154,7 +154,7 @@
     <string name="menu_bitcoin">Bitcoin</string>
     <string name="menu_litecoin">Litecoin</string>
     <string name="menu_flattr">Flattr</string>
-    <string name="banner_updating_repositories">Actualitzant respositoris</string>
+    <string name="banner_updating_repositories">Actualitzant repositoris</string>
     <string name="more">Més</string>
     <string name="less">Menys</string>
     <string name="permissions">Permisos</string>
@@ -209,10 +209,10 @@
     <string name="swap_success">Intercanvi correcte!</string>
     <string name="swap_active_hotspot">%1$s (el vostre punt d\'accés)</string>
     <string name="swap_switch_to_wifi">Toqueu per canviar a una xarxa Wi-Fi</string>
-    <string name="swap_dont_show_again">No tornis a mostrar això</string>
+    <string name="swap_dont_show_again">No ho tornis a mostrar</string>
     <string name="swap_scan_or_type_url">Una persona ha d\'escanejar el codi, o escriure l\'URL de l\'altra al navegador.</string>
     <string name="swap_choose_apps">Trieu les aplicacions</string>
-    <string name="swap_scan_qr">Escaneja codi QR</string>
+    <string name="swap_scan_qr">Codi QR</string>
     <string name="swap_people_nearby">Persones a prop</string>
     <string name="swap_scanning_for_peers">S\'està cercant persones a prop…</string>
     <string name="swap_nearby">Intercanvi per proximitat</string>
@@ -226,6 +226,7 @@
     <string name="swap_wifi_device_name">Nom del dispositiu</string>
     <string name="swap_cant_find_peers">No trobeu a qui esteu cercant?</string>
     <string name="swap_send_fdroid">Envia l\'F-Droid</string>
+    <string name="apps">Aplicacions</string>
     <string name="swap_no_peers_nearby">No s\'ha trobat ningú a prop amb qui intercanviar.</string>
     <string name="swap_connecting">S\'està connectant</string>
     <string name="swap_confirm">Confirmeu l\'intercanvi</string>
@@ -299,7 +300,7 @@
     <string name="notification_title_summary_installed">Instal·lació correcta</string>
     <string name="notification_title_summary_install_error">Instal·lació fallida</string>
     <string name="notification_action_update">Actualitza</string>
-    <string name="notification_action_cancel">Cancel·leu</string>
+    <string name="notification_action_cancel">Cancel·la</string>
     <string name="notification_action_install">Instal·la</string>
     <string name="app_recommended_version_installed">Versió %1$s (Recomanada)</string>
     <string name="app_new">Nova</string>
@@ -454,8 +455,6 @@
     <string name="share_repository">Comparteix el dipòsit</string>
     <string name="send_install_history">Envia l\'historial d\'instal·lacions</string>
     <string name="send_history_csv">%s historial d\'instal·lacions com a fitxer CSV</string>
-    <string name="allow_push_requests">Permet la des/instal·lació d\'aplicacions</string>
-    <string name="allow_push_requests_summary">Les meta-dades del repositori poden incloure «push requests» per instal·lar o desinstal·lar aplicacions</string>
     <string name="updates_disabled_by_settings">Totes les actualitzacions deshabilitades per la configuració de dades mòbils/WiFi</string>
     <string name="antinosourcesince">El codi font ja no està disponible, no és possible actualitzar.</string>
     <string name="about_forum">Fòrum de suport</string>
@@ -519,4 +518,20 @@
     <string name="install_history_and_metrics">Instal·la l\'històric i les mètriques</string>
     <string name="send_fdroid_metrics_json">Informe de mètriques %s como a fitxer JSON</string>
     <string name="send_fdroid_metrics_report">Envia informe de mètriques %s</string>
+    <string name="share_apk_error">No es pot compartir l\'arxiu de l\'aplicació</string>
+    <string name="has_disallow_install_unknown_sources">L\'usuari actual no pot afegir fonts desconegudes, això inclou nou repositoris</string>
+    <string name="has_disallow_install_unknown_sources_globally">L\'administració del dispositiu no permet instal·lar aplicacions de fonts desconegudes, això inclou nous repositoris</string>
+    <string name="swap_wifi_vpn_conflict">Entra en conflicte amb la VPN activa!</string>
+    <string name="antinonfreenet">Serveis de xarxa no lliures</string>
+    <string name="app_list_results_hidden_antifeature_settings">Alguns resultats s\'han amagat en funció de la vostra configuració antifunció.</string>
+    <string name="antitrack">Seguiment</string>
+    <string name="antinonfreead">Complements no lliures</string>
+    <string name="antinonfreedep">Dependències no lliures</string>
+    <string name="antidisabledalgorithm">Signat amb un algoritme insegur</string>
+    <string name="antiknownvuln">Vulnerabilitat coneguda</string>
+    <string name="antiads">Anuncis</string>
+    <string name="antinosource">El codi font ja no està disponible</string>
+    <string name="antinonfreeassets">Recursos no gratuïts</string>
+    <string name="antiupstreamnonfree">Upstream no lliure</string>
+    <string name="antiothers">Altres anti-característiques</string>
 </resources>
