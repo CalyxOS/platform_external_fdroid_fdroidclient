@@ -50,6 +50,24 @@
       "message": "I thought I\u0027d reviewed this already somewhere, but for the record, this is not needed since Calyx is not trying to override apps in f-droid.org and guardianproject repos.",
       "revId": "d9c12e1f842a10b8d234c5bac2d6748c886d4551",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ee9e8bf_3a4ec79e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-18T19:59:48Z",
+      "side": 1,
+      "message": "Yeah we discussed it on gitlab when talking about the setupwizard repo.",
+      "parentUuid": "793c6466_7f33bd71",
+      "revId": "d9c12e1f842a10b8d234c5bac2d6748c886d4551",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
