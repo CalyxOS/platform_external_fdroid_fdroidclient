@@ -1,25 +1,19 @@
 package org.fdroid.fdroid.data;
 
-import android.content.ComponentName;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
-import android.os.IBinder;
 import android.os.Process;
-import android.os.RemoteException;
 import android.util.Log;
 
 import org.acra.ACRA;
 import org.fdroid.fdroid.AppUpdateStatusManager;
 import org.fdroid.fdroid.Utils;
 import org.fdroid.fdroid.data.Schema.InstalledAppTable;
-import org.fdroid.fdroid.installer.PrivilegedInstaller;
-import org.fdroid.fdroid.privileged.IPrivilegedService;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -189,62 +183,17 @@ public class InstalledAppProviderService extends JobIntentService {
      */
     public static void compareToPackageManager(final Context context) {
         Utils.debugLog(TAG, "Comparing package manager to our installed app cache.");
-
-        if (Build.VERSION.SDK_INT >= 29 &&
-                PrivilegedInstaller.isExtensionInstalledCorrectly(context) ==
-                        PrivilegedInstaller.IS_EXTENSION_INSTALLED_YES) {
-            ServiceConnection mServiceConnection = new ServiceConnection() {
-                @Override
-                public void onServiceConnected(ComponentName name, IBinder service) {
-                    IPrivilegedService privService = IPrivilegedService.Stub.asInterface(service);
-                    List<PackageInfo> packageInfoList = null;
-                    try {
-                        packageInfoList = privService.getInstalledPackages(PackageManager.GET_SIGNATURES);
-                    } catch (RemoteException e) {
-                        e.printStackTrace();
-                    }
-                    compareToPackageManager(context, packageInfoList);
-                }
-
-                @Override
-                public void onServiceDisconnected(ComponentName componentName) {
-                    // Nothing to tear down from onServiceConnected
-                }
-            };
-
-            Intent serviceIntent = new Intent(PrivilegedInstaller.PRIVILEGED_EXTENSION_SERVICE_INTENT);
-            serviceIntent.setPackage(PrivilegedInstaller.PRIVILEGED_EXTENSION_PACKAGE_NAME);
-            context.getApplicationContext().bindService(serviceIntent, mServiceConnection,
-                    Context.BIND_AUTO_CREATE);
-        } else {
-            compareToPackageManager(context, null);
-        }
-    }
-
-    private static class PackageInfoComparator implements Comparator<PackageInfo> {
-        @Override
-        public int compare(PackageInfo o1, PackageInfo o2) {
-            // There are two trichrome library entries in the list,
-            // one for each version. We only want the newest here.
-            String[] duplicateList = new String[]{"org.chromium.trichromelibrary"};
-            for (String dup : duplicateList) {
-                if (o1.packageName.contentEquals(dup)
-                        && o2.packageName.contentEquals(dup)) {
-                    return Integer.compare(o1.versionCode, o2.versionCode);
-                }
-            }
-            return o1.packageName.compareTo(o2.packageName);
-        }
-    }
-
-    private static void compareToPackageManager(Context context, List<PackageInfo> packageInfoList) {
-        if (packageInfoList == null || packageInfoList.isEmpty()) {
-            packageInfoList = context.getPackageManager().getInstalledPackages(PackageManager.GET_SIGNATURES);
-        }
         Map<String, Long> cachedInfo = InstalledAppProvider.Helper.lastUpdateTimes(context);
-        TreeSet<PackageInfo> packageInfoSet = new TreeSet<>(new PackageInfoComparator());
-        packageInfoSet.addAll(packageInfoList);
-        for (PackageInfo packageInfo : packageInfoSet) {
+
+        List<PackageInfo> packageInfoList = context.getPackageManager()
+                .getInstalledPackages(PackageManager.GET_SIGNATURES);
+        Collections.sort(packageInfoList, new Comparator<PackageInfo>() {
+            @Override
+            public int compare(PackageInfo o1, PackageInfo o2) {
+                return o1.packageName.compareTo(o2.packageName);
+            }
+        });
+        for (PackageInfo packageInfo : packageInfoList) {
             if (cachedInfo.containsKey(packageInfo.packageName)) {
                 if (packageInfo.lastUpdateTime < 1262300400000L // 2010-01-01 00:00
                         || packageInfo.lastUpdateTime > cachedInfo.get(packageInfo.packageName)) {
@@ -260,6 +209,7 @@ public class InstalledAppProviderService extends JobIntentService {
             delete(context, packageName);
         }
     }
+
 
     @Nullable
     public static File getPathToInstalledApk(PackageInfo packageInfo) {
