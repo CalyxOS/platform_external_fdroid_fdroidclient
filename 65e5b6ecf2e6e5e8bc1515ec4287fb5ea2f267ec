@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4014f69_a2c65db9",
+        "filename": "app/src/main/aidl/org/fdroid/fdroid/privileged/IPrivilegedService.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-28T19:47:32Z",
+      "side": 0,
+      "message": "We\u0027re removing this method, need to make sure that\u0027s fine.\n\n1. Matching client and privext -\u003e ok\n2. Old client, new privext -\u003e Unlikely, but failure?\n3. New client, old privext -\u003e Simply won\u0027t work?\n4. Future addition of new AIDL method with mismatch -\u003e crash, shouldn\u0027t happen though.",
+      "revId": "65e5b6ecf2e6e5e8bc1515ec4287fb5ea2f267ec",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
