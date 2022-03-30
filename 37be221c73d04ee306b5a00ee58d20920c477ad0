@@ -16,6 +16,23 @@
       "message": "Needs to be sent upstream but going to start testing from here",
       "revId": "37be221c73d04ee306b5a00ee58d20920c477ad0",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00588d40_e71ed6b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2022-03-30T13:13:44Z",
+      "side": 1,
+      "message": "This feature was added in an upstream discussion, I think these changes should also be discussed and merged upstream.",
+      "revId": "37be221c73d04ee306b5a00ee58d20920c477ad0",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
