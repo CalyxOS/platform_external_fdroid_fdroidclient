@@ -33,6 +33,24 @@
       "message": "This feature was added in an upstream discussion, I think these changes should also be discussed and merged upstream.",
       "revId": "37be221c73d04ee306b5a00ee58d20920c477ad0",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f52c7ce_d012b0ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-30T17:23:55Z",
+      "side": 1,
+      "message": "Yes, I just put it up here quickly for testing as noted above - though all one needs to test is revert the privext change (that\u0027s what I\u0027ve been doing), since without that the client changes won\u0027t work and it\u0027ll stick to the normal behaviour.",
+      "parentUuid": "00588d40_e71ed6b6",
+      "revId": "37be221c73d04ee306b5a00ee58d20920c477ad0",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
