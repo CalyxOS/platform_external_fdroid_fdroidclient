@@ -26,11 +26,14 @@ package org.fdroid.fdroid;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.res.Resources.NotFoundException;
 import android.content.pm.PackageInfo;
+import android.content.res.Resources.NotFoundException;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Pair;
 
+import org.fdroid.download.Downloader;
 import org.fdroid.fdroid.data.Apk;
 import org.fdroid.fdroid.data.ApkProvider;
 import org.fdroid.fdroid.data.App;
@@ -43,7 +46,6 @@ import org.fdroid.fdroid.data.RepoXMLHandler;
 import org.fdroid.fdroid.data.Schema.RepoTable;
 import org.fdroid.fdroid.installer.InstallManagerService;
 import org.fdroid.fdroid.installer.InstallerService;
-import org.fdroid.fdroid.net.Downloader;
 import org.fdroid.fdroid.net.DownloaderFactory;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -126,18 +128,21 @@ public class IndexUpdater {
         return hasChanged;
     }
 
-    private Downloader downloadIndex() throws UpdateException {
+    private Pair<Downloader, File> downloadIndex() throws UpdateException {
+        File destFile = null;
         Downloader downloader = null;
         try {
-            downloader = DownloaderFactory.create(context, indexUrl);
+            destFile = File.createTempFile("dl-", "", context.getCacheDir());
+            destFile.deleteOnExit(); // this probably does nothing, but maybe...
+            downloader = DownloaderFactory.createWithTryFirstMirror(repo, Uri.parse(indexUrl), destFile);
             downloader.setCacheTag(repo.lastetag);
             downloader.setListener(downloadListener);
             downloader.download();
 
         } catch (IOException e) {
-            if (downloader != null && downloader.outputFile != null) {
-                if (!downloader.outputFile.delete()) {
-                    Log.w(TAG, "Couldn't delete file: " + downloader.outputFile.getAbsolutePath());
+            if (destFile != null) {
+                if (!destFile.delete()) {
+                    Log.w(TAG, "Couldn't delete file: " + destFile.getAbsolutePath());
                 }
             }
 
@@ -145,8 +150,8 @@ public class IndexUpdater {
         } catch (InterruptedException e) {
             // ignored if canceled, the local database just won't be updated
             e.printStackTrace();
-        }
-        return downloader;
+        } // TODO is it safe to delete destFile in finally block?
+        return new Pair<>(downloader, destFile);
     }
 
     /**
@@ -158,14 +163,16 @@ public class IndexUpdater {
      * @throws UpdateException All error states will come from here.
      */
     public boolean update() throws UpdateException {
-        final Downloader downloader = downloadIndex();
+        final Pair<Downloader, File> pair = downloadIndex();
+        final Downloader downloader = pair.first;
+        final File destFile = pair.second;
         hasChanged = downloader.hasChanged();
 
         if (hasChanged) {
             // Don't worry about checking the status code for 200. If it was a
             // successful download, then we will have a file ready to use:
             cacheTag = downloader.getCacheTag();
-            processDownloadedFile(downloader.outputFile);
+            processDownloadedFile(destFile);
             processRepoPushRequests(repoPushRequestList);
         }
         return true;
@@ -207,11 +214,6 @@ public class IndexUpdater {
                 throw new UpdateException(repo, downloadedFile + " does not exist!");
             }
 
-            // Due to a bug in Android 5.0 Lollipop, the inclusion of bouncycastle causes
-            // breakage when verifying the signature of the downloaded .jar. For more
-            // details, check out https://gitlab.com/fdroid/fdroidclient/issues/111.
-            FDroidApp.disableBouncyCastleOnLollipop();
-
             JarFile jarFile = new JarFile(downloadedFile, true);
             JarEntry indexEntry = (JarEntry) jarFile.getEntry(IndexUpdater.DATA_FILE_NAME);
             indexInputStream = new ProgressBufferedInputStream(jarFile.getInputStream(indexEntry),
@@ -241,7 +243,6 @@ public class IndexUpdater {
         } catch (SAXException | ParserConfigurationException | IOException e) {
             throw new UpdateException(repo, "Error parsing index", e);
         } finally {
-            FDroidApp.enableBouncyCastleOnLollipop();
             Utils.closeQuietly(indexInputStream);
             if (downloadedFile != null) {
                 if (!downloadedFile.delete()) {
